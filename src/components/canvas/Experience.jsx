@@ -2,10 +2,13 @@ import { Canvas } from "@react-three/fiber"
 import Light from "./Light"
 import { OrbitControls } from "@react-three/drei"
 import { Room } from "./Room"
+import * as THREE from "three"
 
 function Experience(){
     return(
-        <Canvas>
+        <Canvas
+            gl={{ antialias: true}}
+        >
             <Light/>
             <Room/>
             <OrbitControls
