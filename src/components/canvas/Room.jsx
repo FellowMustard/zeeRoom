@@ -4,7 +4,7 @@ import * as THREE from "three"
 
 export function Room(props) {
   const { nodes} = useGLTF('models/pf.glb')
-  const texture = useTexture('models/baked_na.png');
+  const texture = useTexture('models/baked_na.webp');
 
   texture.flipY = false;
   texture.colorSpace = THREE.SRGBColorSpace
