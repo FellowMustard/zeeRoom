@@ -2,15 +2,15 @@ import { Canvas } from "@react-three/fiber"
 import Light from "./Light"
 import { OrbitControls } from "@react-three/drei"
 import { Room } from "./Room"
-import * as THREE from "three"
 
 function Experience(){
     return(
         <Canvas
             gl={{ antialias: true}}
+            camera={{ position: [5, 8, 5], fov: 50 }}
         >
             <Light/>
-            <Room/>
+            <Room position={[0,-1,0]}/>
             <OrbitControls
                 // Horizontal (azimuth)
                 minAzimuthAngle={0}             
