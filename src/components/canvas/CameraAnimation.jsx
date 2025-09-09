@@ -9,9 +9,9 @@ function CameraAnimation() {
   const [scrolled,setScrolled] = useState(false)
   const [controlsEnabled,setControlsEnabled] = useState(false)
   const { camera } = useThree();
+  const isMobile = window.innerWidth < 768; 
 
-
-  const introPos = new THREE.Vector3(-0.9, 1.2, -1.3);
+  const introPos = new THREE.Vector3(-0.9, 1.2, -1.25);
   const defaultPos = new THREE.Vector3(5, 8, 5);
 
   const introRot = new THREE.Euler(-1.57, 1.39, 1.5707);
@@ -41,9 +41,19 @@ useEffect(() => {
     camera.position.copy(introPos);
     camera.rotation.copy(introRot);
 
-    const handleWheel = () => setScrolled(true);
-    window.addEventListener("wheel", handleWheel, { once: true });
-    return () => window.removeEventListener("wheel", handleWheel);
+    camera.fov = isMobile ? 75 : 50;
+    camera.updateProjectionMatrix(); 
+
+    const handleScroll = () => setScrolled(true);
+
+
+    window.addEventListener("wheel", handleScroll, { once: true });
+    window.addEventListener("touchstart", handleScroll, { once: true });
+
+  return () => {
+    window.removeEventListener("wheel", handleScroll);
+    window.removeEventListener("touchstart", handleScroll);
+  };
   }, [camera]);
 
 
