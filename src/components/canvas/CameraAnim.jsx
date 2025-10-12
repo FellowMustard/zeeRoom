@@ -24,11 +24,11 @@ function CameraAnim() {
       dispatch(start());
       dispatch(
         lerpTo({
-          position: [5, 2, 10],
+          position: [5, 4, 10],
         })
       );
     }
-
+    console.log(position);
     window.addEventListener("wheel", handleScroll);
     window.addEventListener("touchstart", handleScroll);
 
