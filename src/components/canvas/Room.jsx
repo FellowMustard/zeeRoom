@@ -1,22 +1,22 @@
+import React, { useMemo, useRef } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
-import { useMemo } from "react";
 import * as THREE from "three";
 
 export function Room(props) {
   const { nodes } = useGLTF("models/pf.glb");
-  const textures = useTexture(["models/baked_01.webp", "models/baked_02.webp"]);
-
-  textures.forEach((tex) => {
-    tex.flipY = false;
-    tex.colorSpace = THREE.SRGBColorSpace;
-    tex.generateMipmaps = false;
-    tex.minFilter = THREE.LinearFilter;
+  const textures = useTexture([
+    "models/bake_p01.webp",
+    "models/bake_p02.webp",
+    "models/bake_p03.webp",
+    "models/bake_p_img.webp",
+    "models/bake_p04.webp",
+  ]);
+  textures.forEach((texture) => {
+    texture.flipY = false;
+    texture.colorSpace = THREE.SRGBColorSpace;
+    texture.generateMipmaps = false;
+    texture.minFilter = THREE.LinearFilter;
   });
-
-  const materials = useMemo(
-    () => textures.map((tex) => new THREE.MeshBasicMaterial({ map: tex })),
-    [textures]
-  );
 
   const glowingMaterial = new THREE.MeshStandardMaterial({
     color: 0xfff,
@@ -24,657 +24,1296 @@ export function Room(props) {
     emissiveIntensity: 10,
   });
 
+  const materials = useMemo(
+    () =>
+      textures.map((texture) => new THREE.MeshBasicMaterial({ map: texture })),
+    [textures]
+  );
+
+  console.log(materials);
+
   return (
     <group {...props} dispose={null}>
-      {/* 01 */}
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.AC.geometry}
         material={materials[0]}
-        position={[-1.259, 2.748, -2.35]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.sofa_body.geometry}
         material={materials[0]}
-        position={[1.37, 1.111, 1.842]}
-        rotation={[0, -Math.PI / 2, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.sofa_bottom.geometry}
         material={materials[0]}
-        position={[1.37, 1.111, 1.878]}
-        rotation={[0, -Math.PI / 2, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.sofa_cushion_02.geometry}
         material={materials[0]}
-        position={[1.658, 0.76, 1.557]}
-        rotation={[0, 0, 0.815]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.sofa_cushion_01.geometry}
         material={materials[0]}
-        position={[1.37, 0.868, 2.231]}
-        rotation={[-1.229, 0, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.floor.geometry}
         material={materials[0]}
-        position={[-2.394, 0.087, -1.427]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.room_bottom.geometry}
         material={materials[0]}
-        position={[0, -0.022, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.room_right.geometry}
         material={materials[0]}
-        position={[0, -0.022, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.room_left.geometry}
         material={materials[0]}
-        position={[0, -0.022, 0]}
-        rotation={[0, Math.PI / 2, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.photo.geometry}
-        material={materials[0]}
-        position={[-2.534, 2.223, -1.267]}
-        rotation={[0, 0, -Math.PI / 2]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.trash.geometry}
         material={materials[0]}
-        position={[-2.294, 0.328, 0.319]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.curtain_bar.geometry}
         material={materials[0]}
-        position={[1.341, 2.701, -2.409]}
-        rotation={[0, 0, -Math.PI / 2]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.curtain_right.geometry}
-        material={materials[0]}
-        position={[2.195, 1.773, -2.402]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.curtain_left.geometry}
         material={materials[0]}
-        position={[0.507, 1.773, -2.402]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.ring_right.geometry}
         material={materials[0]}
-        position={[2.536, 2.701, -2.409]}
-        rotation={[0, 0, -Math.PI / 2]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.ring_left.geometry}
         material={materials[0]}
-        position={[0.185, 2.701, -2.409]}
-        rotation={[0, 0, -Math.PI / 2]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.holder_left.geometry}
         material={materials[0]}
-        position={[0.183, 2.715, -2.466]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.holder_right.geometry}
         material={materials[0]}
-        position={[2.536, 2.715, -2.466]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.window_border.geometry}
         material={materials[0]}
-        position={[0, -0.022, 0.038]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.curtain_right.geometry}
+        material={materials[0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.guitar_body.geometry}
         material={materials[0]}
-        position={[-1.123, 0.525, 0.22]}
-        rotation={[1.274, 0.173, -0.5]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.guitar_neck.geometry}
         material={materials[0]}
-        position={[-1.207, 1.02, 0.079]}
-        rotation={[1.274, 0.173, -0.5]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.guitar_hold.geometry}
         material={materials[0]}
-        position={[-1.207, 1.02, 0.079]}
-        rotation={[1.274, 0.173, -0.5]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.string_06.geometry}
         material={materials[0]}
-        position={[-1.237, 1.021, 0.098]}
-        rotation={[1.274, 0.173, -0.5]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.guitar_h.geometry}
         material={materials[0]}
-        position={[-1.099, 0.431, 0.261]}
-        rotation={[1.274, 0.173, -0.5]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.string_hold.geometry}
         material={materials[0]}
-        position={[-1.321, 1.601, -0.111]}
-        rotation={[1.274, 0.173, -2.071]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.guitar_head.geometry}
         material={materials[0]}
-        position={[-1.324, 1.649, -0.116]}
-        rotation={[1.274, 0.173, -0.5]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.guitar_t.geometry}
         material={materials[0]}
-        position={[-1.161, 0.75, 0.158]}
-        rotation={[1.274, 0.173, -0.5]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.string_01.geometry}
         material={materials[0]}
-        position={[-1.237, 1.021, 0.098]}
-        rotation={[1.274, 0.173, -0.5]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.string_02.geometry}
         material={materials[0]}
-        position={[-1.237, 1.021, 0.098]}
-        rotation={[1.274, 0.173, -0.5]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.string_03.geometry}
         material={materials[0]}
-        position={[-1.237, 1.021, 0.098]}
-        rotation={[1.274, 0.173, -0.5]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.string_04.geometry}
         material={materials[0]}
-        position={[-1.237, 1.021, 0.098]}
-        rotation={[1.274, 0.173, -0.5]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.string_05.geometry}
         material={materials[0]}
-        position={[-1.237, 1.021, 0.098]}
-        rotation={[1.274, 0.173, -0.5]}
       />
-
-      {/* 02 */}
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.table_legs.geometry}
         material={materials[1]}
-        position={[-1.713, 0.197, -0.254]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.table_stand.geometry}
         material={materials[1]}
-        position={[-1.713, 1.087, -0.254]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.table_stand_side.geometry}
         material={materials[1]}
-        position={[-1.712, 0.335, -0.311]}
-        rotation={[Math.PI / 2, 0, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.table_body.geometry}
         material={materials[1]}
-        position={[-1.717, 1.111, -1.177]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.table_holder.geometry}
         material={materials[1]}
-        position={[-1.713, 1.087, -0.254]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.mousepad.geometry}
         material={materials[1]}
-        position={[-1.298, 1.228, -1.924]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.cup.geometry}
         material={materials[1]}
-        position={[-1.374, 1.309, -0.432]}
-        rotation={[-Math.PI, 1.538, -Math.PI]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.tk_book.geometry}
         material={materials[1]}
-        position={[-1.988, 1.262, -0.275]}
-        rotation={[Math.PI / 2, 0, 0.722]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.box.geometry}
         material={materials[1]}
-        position={[-1.99, 1.442, -1.296]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.deck02.geometry}
         material={materials[1]}
-        position={[-2.063, 1.322, -0.614]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.deck01.geometry}
         material={materials[1]}
-        position={[-2.22, 1.241, -0.614]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.scroll_wheel.geometry}
         material={materials[1]}
-        position={[-1.391, 1.273, -1.991]}
-        rotation={[-Math.PI / 2, Math.PI / 2, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.mouse_body.geometry}
         material={materials[1]}
-        position={[-1.327, 1.264, -1.991]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.mb_01.geometry}
         material={materials[1]}
-        position={[-1.327, 1.264, -1.991]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.mb_02.geometry}
         material={materials[1]}
-        position={[-1.327, 1.264, -1.991]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.keyboard_case.geometry}
         material={materials[1]}
-        position={[-1.284, 1.262, -1.225]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.keycaps.geometry}
         material={materials[1]}
-        position={[-1.199, 1.283, -1.325]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Cube012.geometry}
         material={materials[1]}
-        position={[-1.422, 1.26, -1.035]}
-        rotation={[0, -Math.PI / 2, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.laptop_keyboard.geometry}
         material={materials[1]}
-        position={[-2.148, 1.472, -1.425]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.laptop_body.geometry}
         material={materials[1]}
-        position={[-1.976, 1.442, -1.239]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.laptop_head.geometry}
         material={materials[1]}
-        position={[-2.349, 1.688, -1.239]}
-        rotation={[0, 0, -1.088]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.port_lap_key.geometry}
         material={materials[1]}
-        position={[-2.092, 1.466, -0.883]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.port_lap_mouse.geometry}
         material={materials[1]}
-        position={[-2.044, 1.466, -0.883]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.port_lap_hdd.geometry}
         material={materials[1]}
-        position={[-1.891, 1.466, -1.596]}
-        rotation={[Math.PI, 0, Math.PI]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.port_hdd_lap.geometry}
         material={materials[1]}
-        position={[-2.016, 1.458, -1.712]}
-        rotation={[0, 1.571, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.laptop_screen.geometry}
         material={materials[1]}
-        position={[-2.349, 1.688, -1.239]}
-        rotation={[0, 0, -1.088]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.cable_lap_key.geometry}
         material={materials[1]}
-        position={[-1.119, 1.442, -0.254]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.hdd.geometry}
         material={materials[1]}
-        position={[-2.15, 1.456, -1.713]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.cable_lap_hdd.geometry}
         material={materials[1]}
-        position={[-1.432, 1.486, -1.667]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.spray_body.geometry}
         material={materials[1]}
-        position={[2.419, 0.377, -2.131]}
-        rotation={[0, 0.649, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.spray_top.geometry}
         material={materials[1]}
-        position={[2.419, 0.731, -2.131]}
-        rotation={[0, 0.649, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.af_side.geometry}
         material={materials[1]}
-        position={[1.399, 0.359, -2.107]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.af_bar_h.geometry}
         material={materials[1]}
-        position={[1.819, 0.161, -2.014]}
-        rotation={[Math.PI / 2, 0, -Math.PI / 2]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.af_bar_v.geometry}
         material={materials[1]}
-        position={[1.5, 0.356, -2.007]}
-        rotation={[-Math.PI, -Math.PI / 2, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.af_metal.geometry}
         material={materials[1]}
-        position={[1.431, 0.26, -2.109]}
-        rotation={[Math.PI / 2, 0, -Math.PI / 2]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.af_lamp.geometry}
         material={glowingMaterial}
-        position={[1.628, 0.26, -2.109]}
-        rotation={[Math.PI / 2, 0, -Math.PI / 2]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.af_bot.geometry}
         material={materials[1]}
-        position={[1.819, 0.114, -2.107]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.af_top.geometry}
         material={materials[1]}
-        position={[1.819, 0.704, -2.107]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.chair_top.geometry}
         material={materials[1]}
-        position={[-0.282, 1.301, -1.265]}
-        rotation={[0, 0.327, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.chair_bot.geometry}
         material={materials[1]}
-        position={[-0.564, 0.835, -1.157]}
-        rotation={[0, 0.327, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.chair_side.geometry}
         material={materials[1]}
-        position={[-0.34, 0.964, -0.692]}
-        rotation={[Math.PI / 2, 0, -0.327]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.chair_bot_plastic.geometry}
         material={materials[1]}
-        position={[-0.566, 0.708, -1.157]}
-        rotation={[0, 0.327, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.chair_side_holder.geometry}
         material={materials[1]}
-        position={[-0.503, 0.734, -1.178]}
-        rotation={[0, 0.327, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.chair_knee.geometry}
         material={materials[1]}
-        position={[-0.566, 0.505, -1.157]}
-        rotation={[0, 0.327, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.chair_leg_holder.geometry}
         material={materials[1]}
-        position={[-0.566, 0.653, -1.157]}
-        rotation={[0, 0.327, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.chair_skeleton.geometry}
         material={materials[1]}
-        position={[-0.194, 1.186, -1.28]}
-        rotation={[0, 0.327, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.chair_back.geometry}
         material={materials[1]}
-        position={[-0.165, 0.777, -1.294]}
-        rotation={[0, 0.327, -Math.PI / 2]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.chair_spine.geometry}
         material={materials[1]}
-        position={[-0.103, 1.083, -1.311]}
-        rotation={[0, 0.327, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.chair_set.geometry}
         material={materials[1]}
-        position={[-0.351, 0.539, -1.23]}
-        rotation={[0, 0.327, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.chair_pipe.geometry}
         material={materials[1]}
-        position={[-0.351, 0.632, -1.23]}
-        rotation={[0, 0.327, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.chair_leg.geometry}
         material={materials[1]}
-        position={[-0.566, 0.218, -1.157]}
-        rotation={[0, 0.327, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.chair_wheel.geometry}
         material={materials[1]}
-        position={[-0.991, 0.148, -0.839]}
-        rotation={[-Math.PI, 0.93, Math.PI / 2]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.chair_wheel_stand.geometry}
         material={materials[1]}
-        position={[-0.405, 0.18, -0.683]}
-        rotation={[Math.PI, -0.327, Math.PI]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.shelf_left.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.shelf_right.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.shelf_top.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.shelf_bot.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.shelf_plat.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.shelf_back.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.chess.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.rubick.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.cardboard_container.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.plan_01.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.plan_08.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.plan_07.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.plan_03.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.plan_04.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.plan_05.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.folders.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.clip.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.sketch_holder.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.sketch_top.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.sketch_bot.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.sketch_book.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.paint_cup.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.pencil_01.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.pencil_02.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.palette_side.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.paint_palette.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.palette.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.indo_cover.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.indo_book.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.cn_book.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.cn_cover.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.en_book.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.en_cover.geometry}
+        material={materials[2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.photo.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.react_cover.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.react_book.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.js_cover.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.js_book.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.tailwind_book.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.tailwind_cover.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.next_book.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.next_cover.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.shadcn_book.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.shadcn_cover.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.three_cover.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.three_book.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.mongo_book.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.mongo_cover.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.node_book.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.node_cover.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.prisma_book.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.prisma_cover.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.redux_book.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.redux_cover.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.html_book.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.html_cover.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.type_book.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.type_cover.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.express_book.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.express_cover.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.unity_book.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.unity_cover.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.motion_book.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.motion_cover.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.blender_book.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.blender_cover.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.css_book.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.css_cover.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.git_book.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.git_cover.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.mysql_book.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.mysql_cover.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.catan.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.sequence.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.root.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.saka.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.deck_bottom.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.deck_top.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.catr_uo.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.catr_botw.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.catr_04.geometry}
+        material={materials[3]}
+        position={[-1.837, 1.649, 1.194]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.catr_scarlet.geometry}
+        material={materials[3]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.catr_04002.geometry}
+        material={materials[3]}
+        position={[-2.211, 1.763, 1.071]}
+        rotation={[1.518, -0.348, 0]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.catr_04003.geometry}
+        material={materials[3]}
+        position={[-2.211, 1.763, 1.031]}
+        rotation={[Math.PI / 2, -0.348, 0]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.catr_04004.geometry}
+        material={materials[3]}
+        position={[-2.211, 1.763, 1.112]}
+        rotation={[1.472, -0.348, 0]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.phone.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.phone_screen.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.switch_body.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.switch_button_right.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.switch_r_joystick.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.switch_button_left.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.switch_l_joysitck.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.switch_dock.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.switch_lr_button.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.pot.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.aloe.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.gh_wood.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.ig_wood.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.linked_wood.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.gh.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.ig.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.linked.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.capybara.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.s_table_bot.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.s_table_desk.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.s_table_divider.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.s_table_glass.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.s_table_main.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.tokyo_tower.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.flag_japan.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.flag_pole.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.japan_cover.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.japan_book.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.tray.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.awwwards.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.hammer.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.hammer_stick.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.render_sphere.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.react_02.geometry}
+        material={materials[4]}
+        position={[-1.882, 0.541, 1.867]}
+        rotation={[0, -0.582, 0]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.react_01.geometry}
+        material={materials[4]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.react_08.geometry}
+        material={materials[4]}
+        position={[-2.084, 0.541, 1.923]}
+        rotation={[0, -1.231, 0]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.react_07.geometry}
+        material={materials[4]}
+        position={[-2.122, 0.541, 1.819]}
+        rotation={[0, -0.082, 0]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.react_06.geometry}
+        material={materials[4]}
+        position={[-2.045, 0.541, 1.754]}
+        rotation={[0, 0.241, 0]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.react_05.geometry}
+        material={materials[4]}
+        position={[-1.926, 0.541, 1.764]}
+        rotation={[0, -1.372, 0]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.react_04.geometry}
+        material={materials[4]}
+        position={[-1.964, 0.541, 1.665]}
+        rotation={[Math.PI, -1.322, Math.PI]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.react_03.geometry}
+        material={materials[4]}
+        position={[-2.215, 0.541, 1.766]}
+        rotation={[Math.PI, -1.322, Math.PI]}
       />
     </group>
   );
