@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  animate,
   lerpTo,
   selectVectorPosition,
   selectVectorRotation,
@@ -20,16 +21,15 @@ function CameraAnim({ controlRef }) {
   useEffect(() => {
     function handleScroll() {
       if (firstRun.current) return;
+    
       firstRun.current = true;
-      dispatch(start());
       dispatch(
         lerpTo({
-          position: [5, 4, 10],
+          position: [5, 3, 5],
           rotation: [0, 0, 0],
         })
       );
     }
-    console.log(position);
     window.addEventListener("wheel", handleScroll);
     window.addEventListener("touchstart", handleScroll);
 
@@ -49,7 +49,6 @@ function CameraAnim({ controlRef }) {
       z: position[2],
       duration: 3,
       ease: "power3.inOut",
-      onUpdate: () => controls.update(),
     });
     gsap.to(controls.target, {
       x: rotation[0],
@@ -57,7 +56,12 @@ function CameraAnim({ controlRef }) {
       z: rotation[2],
       duration: 3,
       ease: "power3.inOut",
-      onUpdate: () => controls.update(),
+      onUpdate: () =>{ 
+        controls.update()
+      },
+      onComplete:()=>{
+         dispatch(start())
+      }
     });
   }, [position, rotation]);
 }
