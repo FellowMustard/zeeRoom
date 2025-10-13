@@ -13,10 +13,11 @@ function Experience() {
   const isActive = useSelector(selectActiveStatus);
 
   return (
-    <Canvas dpr={[1, 1.5]}
+    <Canvas
+      dpr={[1, 1.5]}
       className="canvas"
       gl={{ antialias: true }}
-      camera={{ position: START_POSITION, fov: 45 }}
+      camera={{ position: START_POSITION, fov: 45, near: 0.1, far: 100 }}
     >
       <Perf position="top-left" />
       <Room position={[0, -1, 0]} />

@@ -21,11 +21,11 @@ function CameraAnim({ controlRef }) {
   useEffect(() => {
     function handleScroll() {
       if (firstRun.current) return;
-    
+
       firstRun.current = true;
       dispatch(
         lerpTo({
-          position: [5, 3, 5],
+          position: [5, 3, 8],
           rotation: [0, 0, 0],
         })
       );
@@ -56,12 +56,12 @@ function CameraAnim({ controlRef }) {
       z: rotation[2],
       duration: 3,
       ease: "power3.inOut",
-      onUpdate: () =>{ 
-        controls.update()
+      onUpdate: () => {
+        controls.update();
       },
-      onComplete:()=>{
-         dispatch(start())
-      }
+      onComplete: () => {
+        dispatch(start());
+      },
     });
   }, [position, rotation]);
 }
