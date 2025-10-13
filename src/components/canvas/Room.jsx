@@ -1,5 +1,5 @@
 import React, { useMemo, useRef } from "react";
-import { useGLTF, useTexture } from "@react-three/drei";
+import { Html, useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 
 export function Room(props) {
@@ -447,7 +447,12 @@ export function Room(props) {
         receiveShadow
         geometry={nodes.af_top.geometry}
         material={materials[1]}
-      />
+        position={[1.819, 0.696, -2.107]}
+      >
+        <Html position={[0, 0.4, 0]} center occlude>
+          <div className="dialog-box">Bug Report! 👾</div>
+        </Html>
+      </mesh>
       <mesh
         castShadow
         receiveShadow

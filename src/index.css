@@ -40,3 +40,12 @@ html,
   overflow: hidden;
   box-sizing: border-box;
 }
+.dialog-box {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #fff;
+  text-wrap: nowrap;
+  font-size: clamp(8px, 2vw, 12px);
+  font-weight: 500;
+}

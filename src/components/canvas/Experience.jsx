@@ -3,8 +3,10 @@ import { OrbitControls } from "@react-three/drei";
 import { Room } from "./Room";
 import CameraAnim from "./CameraAnim";
 import { START_POSITION, START_ROTATION } from "../../lib/data";
+import { useRef } from "react";
 
 function Experience() {
+  const controlRef = useRef(null);
   return (
     <Canvas
       className="canvas"
@@ -13,6 +15,7 @@ function Experience() {
     >
       <Room position={[0, -1, 0]} />
       <OrbitControls
+        ref={controlRef}
         target={START_ROTATION}
         // Horizontal (azimuth)
         minAzimuthAngle={0}
@@ -23,7 +26,7 @@ function Experience() {
         enableZoom={true}
         enablePan={false}
       />
-      <CameraAnim />
+      <CameraAnim controlRef={controlRef} />
     </Canvas>
   );
 }
