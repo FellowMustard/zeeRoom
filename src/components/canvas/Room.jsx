@@ -1,6 +1,6 @@
-import React, { useMemo, useRef } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 
-import { useGLTF, useTexture } from "@react-three/drei";
+import { useGLTF, useTexture, useVideoTexture } from "@react-three/drei";
 import * as THREE from "three";
 import DialogMesh from "./DialogMesh";
 
@@ -21,12 +21,6 @@ export function Room(props) {
     texture.magFilter = THREE.LinearFilter;
   });
 
-  const glowingMaterial = new THREE.MeshStandardMaterial({
-    color: 0xfff,
-    emissive: 0x9cfff1,
-    emissiveIntensity: 10,
-  });
-
   const materials = useMemo(
     () =>
       textures.map(
@@ -36,7 +30,13 @@ export function Room(props) {
     [textures]
   );
 
-  console.log(materials);
+  const videoTexture = useVideoTexture("/video/showcase.mp4", {
+    crossOrigin: "anonymous",
+    loop: true,
+    muted: true,
+    autoplay: true,
+  });
+  videoTexture.flipY = false;
 
   return (
     <group {...props} dispose={null}>
@@ -287,12 +287,6 @@ export function Room(props) {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.box.geometry}
-        material={materials[1]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.deck02.geometry}
         material={materials[1]}
       />
@@ -347,21 +341,12 @@ export function Room(props) {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.laptop_keyboard.geometry}
+        geometry={nodes.laptop.geometry}
         material={materials[1]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.laptop_body.geometry}
-        material={materials[1]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.laptop_head.geometry}
-        material={materials[1]}
-      />
+        position={[-2.083, 1.558, -1.239]}
+      >
+        <DialogMesh message="Project Showcase 🛠️" position={[0, 0.6, 0]} />
+      </mesh>
       <mesh
         castShadow
         receiveShadow
@@ -391,7 +376,10 @@ export function Room(props) {
         receiveShadow
         geometry={nodes.laptop_screen.geometry}
         material={materials[1]}
-      />
+        position={[-2.353, 1.705, -1.239]}
+      >
+        <meshBasicMaterial map={videoTexture} toneMapped={false} />
+      </mesh>
       <mesh
         castShadow
         receiveShadow
@@ -1119,15 +1107,12 @@ export function Room(props) {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.s_table_glass.geometry}
-        material={materials[4]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.s_table_main.geometry}
         material={materials[4]}
-      />
+        position={[1.372, 0.662, 0.113]}
+      >
+        <DialogMesh message="Social Media" position={[0, 0.6, 0]} />
+      </mesh>
       <mesh
         castShadow
         receiveShadow

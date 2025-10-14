@@ -48,4 +48,13 @@ html,
   text-wrap: nowrap;
   font-size: clamp(8px, 2vw, 12px);
   font-weight: 500;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: dialogAppear 0.2s ease-out forwards;
+}
+@keyframes dialogAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
