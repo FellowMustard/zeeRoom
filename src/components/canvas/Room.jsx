@@ -3,9 +3,13 @@ import React, { useEffect, useMemo, useRef } from "react";
 import { useGLTF, useTexture, useVideoTexture } from "@react-three/drei";
 import * as THREE from "three";
 import DialogMesh from "./DialogMesh";
+import { useDispatch } from "react-redux";
+import { lerpTo } from "../../features/vector/vectorSlice";
+import { SM_POSITION, SM_ROTATION } from "../../lib/data";
 
 export function Room(props) {
   const { nodes } = useGLTF("models/pf.glb");
+  const dispatch = useDispatch();
   const textures = useTexture([
     "models/bake_p01.webp",
     "models/bake_p02.webp",
@@ -1105,6 +1109,14 @@ export function Room(props) {
         material={materials[4]}
       />
       <mesh
+        onClick={() => {
+          dispatch(
+            lerpTo({
+              position: SM_POSITION,
+              rotation: SM_ROTATION,
+            })
+          );
+        }}
         castShadow
         receiveShadow
         geometry={nodes.s_table_main.geometry}

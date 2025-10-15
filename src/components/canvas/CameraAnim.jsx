@@ -10,6 +10,7 @@ import {
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { useThree } from "@react-three/fiber";
+import { useControls } from "leva";
 
 function CameraAnim({ controlRef }) {
   const firstRun = useRef(false);
@@ -17,6 +18,24 @@ function CameraAnim({ controlRef }) {
   const dispatch = useDispatch();
   const position = useSelector(selectVectorPosition);
   const rotation = useSelector(selectVectorRotation);
+
+  // const { x, y, z, tx, ty, tz } = useControls("Camera", {
+  //   x: { value: 1.2, min: -10, max: 10, step: 0.001 },
+  //   y: { value: 1.8, min: -10, max: 10, step: 0.001 },
+  //   z: { value: -1.45, min: -10, max: 10, step: 0.001 },
+  //   tx: { value: 0, min: -10, max: 10, step: 0.001 },
+  //   ty: { value: 0, min: -10, max: 10, step: 0.001 },
+  //   tz: { value: 0, min: -10, max: 10, step: 0.001 },
+  // });
+
+  // // Update camera position from Leva
+  // camera.position.set(x, y, z);
+
+  // // Update orbit target from Leva
+  // if (controlRef.current) {
+  //   controlRef.current.target.set(tx, ty, tz);
+  //   controlRef.current.update();
+  // }
 
   useEffect(() => {
     function handleScroll() {
