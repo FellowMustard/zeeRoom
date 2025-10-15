@@ -1114,6 +1114,7 @@ export function Room(props) {
             lerpTo({
               position: SM_POSITION,
               rotation: SM_ROTATION,
+              isHome:false,
             })
           );
         }}

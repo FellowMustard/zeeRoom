@@ -1,16 +1,19 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { Room } from "./Room";
-import CameraAnim from "./CameraAnim";
 import { START_POSITION, START_ROTATION } from "../../lib/data";
-import { useEffect, useRef } from "react";
+import {  useRef } from "react";
 import { useSelector } from "react-redux";
-import { selectActiveStatus } from "../../features/vector/vectorSlice";
+import {  checkIsHome, selectAnimatingStatus } from "../../features/vector/vectorSlice";
 import { Perf } from "r3f-perf";
+import CameraAnimation from "./CameraAnimation";
 
 function Experience() {
   const controlRef = useRef(null);
-  const isActive = useSelector(selectActiveStatus);
+  const isHome = useSelector(checkIsHome)
+  const isAnimating = useSelector(selectAnimatingStatus);
+  const orbitActive = isHome && !isAnimating;
+
 
   return (
     <Canvas
@@ -24,18 +27,23 @@ function Experience() {
       <OrbitControls
         ref={controlRef}
         target={START_ROTATION}
-        // Horizontal (azimuth)
+        // Horizontal
         minAzimuthAngle={0}
         maxAzimuthAngle={Math.PI / 2}
-        // Vertical (polar)
+        // Vertical
         minPolarAngle={Math.PI / 6}
         maxPolarAngle={Math.PI / 2}
-        enableZoom={isActive}
-        enablePan={isActive}
+        // Other Settinsg << typos so im not AI generated
+        enableZoom={orbitActive}
+        enablePan={orbitActive}
+        enableRotate={orbitActive}
+        minDistance={0.1}
+        maxDistance={10} 
         panSpeed={0.2}
         zoomSpeed={0.4}
+        rotateSpeed={0.2}
       />
-      <CameraAnim controlRef={controlRef} />
+      <CameraAnimation controlRef={controlRef}/>
     </Canvas>
   );
 }
