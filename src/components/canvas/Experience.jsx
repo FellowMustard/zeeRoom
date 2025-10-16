@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { Room } from "./Room";
-import { START_POSITION, START_ROTATION } from "../../lib/data";
+import { PROJECT_POSITION, PROJECT_ROTATION } from "../../lib/data";
 import { useRef } from "react";
 import { useSelector } from "react-redux";
 import {
@@ -22,13 +22,13 @@ function Experience() {
       dpr={[1, 1.5]}
       className="canvas"
       gl={{ antialias: true }}
-      camera={{ position: START_POSITION, fov: 45, near: 0.1, far: 100 }}
+      camera={{ position: PROJECT_POSITION, fov: 45, near: 0.1, far: 100 }}
     >
       <Perf position="top-left" />
       <Room position={[0, -1, 0]} />
       <OrbitControls
         ref={controlRef}
-        target={START_ROTATION}
+        target={PROJECT_ROTATION}
         // Horizontal
         minAzimuthAngle={0}
         maxAzimuthAngle={Math.PI / 2}

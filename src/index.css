@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Nunito", sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
@@ -57,4 +59,18 @@ html,
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.scroll-down {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  position: absolute;
+  color: #fff;
+  z-index: 10;
+  bottom: 10%;
+  width: 100%;
+  font-size: clamp(0.5rem, 0.5rem + 2vw, 1.5rem);
+  line-height: 1.1;
+  font-weight: 700;
 }

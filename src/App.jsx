@@ -1,11 +1,13 @@
-import Experience from "./components/canvas/Experience"
+import Experience from "./components/canvas/Experience";
+import ScrollSign from "./components/scrollSign";
 
-function App(){
-  return(
+function App() {
+  return (
     <>
-      <Experience/>
+      <Experience />
+      <ScrollSign />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

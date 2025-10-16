@@ -5,7 +5,12 @@ import * as THREE from "three";
 import DialogMesh from "./DialogMesh";
 import { useSelector } from "react-redux";
 import { selectCurrentLocation } from "../../features/vector/vectorSlice";
-import { SM_POSITION, SM_ROTATION } from "../../lib/data";
+import {
+  PROJECT_POSITION,
+  PROJECT_ROTATION,
+  SM_POSITION,
+  SM_ROTATION,
+} from "../../lib/data";
 import SocialMedia from "./SocialMedia";
 import useLerp from "../../hooks/useLerp";
 
@@ -63,19 +68,35 @@ export function Room(props) {
         />
       </mesh>
       {/* PROJECT SHOWCASE */}
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.laptop.geometry}
-        material={materials[1]}
-        position={[-2.083, 1.558, -1.239]}
+      <group
+        onClick={() => {
+          lerpMove("PROJECT", PROJECT_POSITION, PROJECT_ROTATION);
+        }}
       >
-        <DialogMesh
-          activator={currentLocation === "HOME"}
-          message="Project Showcase 🛠️"
-          position={[0, 0.6, 0]}
-        />
-      </mesh>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.laptop_screen.geometry}
+          material={materials[1]}
+          position={[-2.353, 1.705, -1.239]}
+        >
+          <meshBasicMaterial map={videoTexture} toneMapped={false} />
+        </mesh>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.laptop.geometry}
+          material={materials[1]}
+          position={[-2.083, 1.558, -1.239]}
+        >
+          <DialogMesh
+            activator={currentLocation === "HOME"}
+            message="Project Showcase 🛠️"
+            position={[0, 0.6, 0]}
+          />
+        </mesh>
+      </group>
+
       {/* SOCIAL MEDIA */}
       <mesh
         onClick={() => {
@@ -454,15 +475,7 @@ export function Room(props) {
         geometry={nodes.port_hdd_lap.geometry}
         material={materials[1]}
       />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.laptop_screen.geometry}
-        material={materials[1]}
-        position={[-2.353, 1.705, -1.239]}
-      >
-        <meshBasicMaterial map={videoTexture} toneMapped={false} />
-      </mesh>
+
       <mesh
         castShadow
         receiveShadow

@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { START_POSITION, START_ROTATION } from "../../lib/data";
+import { PROJECT_POSITION, PROJECT_ROTATION } from "../../lib/data";
 
 const initialState = {
   isAnimating: false,
   location: "",
-  position: START_POSITION,
-  rotation: START_ROTATION,
+  position: [...PROJECT_POSITION],
+  rotation: [...PROJECT_ROTATION],
 };
 
 export const vectorSlice = createSlice({

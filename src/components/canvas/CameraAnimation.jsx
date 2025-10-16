@@ -11,6 +11,7 @@ import { gsap } from "gsap";
 import { useThree } from "@react-three/fiber";
 import useLerp from "../../hooks/useLerp";
 import { HOME_POSITION, HOME_ROTATION } from "../../lib/data";
+import { useControls } from "leva";
 
 function CameraAnimation({ controlRef }) {
   const { camera } = useThree();
@@ -19,6 +20,28 @@ function CameraAnimation({ controlRef }) {
   const position = useSelector(selectVectorPosition);
   const rotation = useSelector(selectVectorRotation);
   const { lerpMove } = useLerp();
+
+  //   const { camX, camY, camZ, targetX, targetY, targetZ } = useControls(
+  //     "Camera",
+  //     {
+  //       camX: { value: position[0], min: -10, max: 10, step: 0.1 },
+  //       camY: { value: position[1], min: -10, max: 10, step: 0.1 },
+  //       camZ: { value: position[2], min: -10, max: 10, step: 0.1 },
+  //       targetX: { value: rotation[0], min: -10, max: 10, step: 0.1 },
+  //       targetY: { value: rotation[1], min: -10, max: 10, step: 0.1 },
+  //       targetZ: { value: rotation[2], min: -10, max: 10, step: 0.1 },
+  //     }
+  //   );
+
+  //   // 🧭 Apply camera/target updates live
+  //   useEffect(() => {
+  //     if (!controlRef.current) return;
+  //     const controls = controlRef.current;
+
+  //     camera.position.set(camX, camY, camZ);
+  //     controls.target.set(targetX, targetY, targetZ);
+  //     controls.update();
+  //   }, [camX, camY, camZ, targetX, targetY, targetZ]);
 
   useEffect(() => {
     function handleScroll() {
@@ -57,7 +80,6 @@ function CameraAnimation({ controlRef }) {
         controls.update();
       },
       onComplete: () => {
-        console.log("animation done");
         dispatch(animateDone());
       },
     });
