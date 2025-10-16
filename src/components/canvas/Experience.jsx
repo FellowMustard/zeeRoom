@@ -2,18 +2,20 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { Room } from "./Room";
 import { START_POSITION, START_ROTATION } from "../../lib/data";
-import {  useRef } from "react";
+import { useRef } from "react";
 import { useSelector } from "react-redux";
-import {  checkIsHome, selectAnimatingStatus } from "../../features/vector/vectorSlice";
+import {
+  selectAnimatingStatus,
+  selectCurrentLocation,
+} from "../../features/vector/vectorSlice";
 import { Perf } from "r3f-perf";
 import CameraAnimation from "./CameraAnimation";
 
 function Experience() {
   const controlRef = useRef(null);
-  const isHome = useSelector(checkIsHome)
+  const isHome = useSelector(selectCurrentLocation) === "HOME";
   const isAnimating = useSelector(selectAnimatingStatus);
   const orbitActive = isHome && !isAnimating;
-
 
   return (
     <Canvas
@@ -38,12 +40,12 @@ function Experience() {
         enablePan={orbitActive}
         enableRotate={orbitActive}
         minDistance={0.1}
-        maxDistance={10} 
+        maxDistance={10}
         panSpeed={0.2}
         zoomSpeed={0.4}
         rotateSpeed={0.2}
       />
-      <CameraAnimation controlRef={controlRef}/>
+      <CameraAnimation controlRef={controlRef} />
     </Canvas>
   );
 }

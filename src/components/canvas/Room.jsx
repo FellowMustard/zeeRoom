@@ -1,15 +1,17 @@
-import React, { useEffect, useMemo, useRef } from "react";
+import { useMemo } from "react";
 
 import { useGLTF, useTexture, useVideoTexture } from "@react-three/drei";
 import * as THREE from "three";
 import DialogMesh from "./DialogMesh";
-import { useDispatch } from "react-redux";
-import { lerpTo } from "../../features/vector/vectorSlice";
+import { useSelector } from "react-redux";
+import { selectCurrentLocation } from "../../features/vector/vectorSlice";
 import { SM_POSITION, SM_ROTATION } from "../../lib/data";
+import SocialMedia from "./SocialMedia";
+import useLerp from "../../hooks/useLerp";
 
 export function Room(props) {
   const { nodes } = useGLTF("models/pf.glb");
-  const dispatch = useDispatch();
+  const { lerpMove } = useLerp();
   const textures = useTexture([
     "models/bake_p01.webp",
     "models/bake_p02.webp",
@@ -42,8 +44,11 @@ export function Room(props) {
   });
   videoTexture.flipY = false;
 
+  const currentLocation = useSelector(selectCurrentLocation);
+
   return (
     <group {...props} dispose={null}>
+      {/* BUG REPORT */}
       <mesh
         castShadow
         receiveShadow
@@ -51,9 +56,92 @@ export function Room(props) {
         material={materials[1]}
         position={[1.888, 0.396, -2.11]}
       >
-        <DialogMesh message="Bug Report 👾" position={[0, 0.6, 0]} />
+        <DialogMesh
+          activator={currentLocation === "HOME"}
+          message="Bug Report 👾"
+          position={[0, 0.6, 0]}
+        />
+      </mesh>
+      {/* PROJECT SHOWCASE */}
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.laptop.geometry}
+        material={materials[1]}
+        position={[-2.083, 1.558, -1.239]}
+      >
+        <DialogMesh
+          activator={currentLocation === "HOME"}
+          message="Project Showcase 🛠️"
+          position={[0, 0.6, 0]}
+        />
+      </mesh>
+      {/* SOCIAL MEDIA */}
+      <mesh
+        onClick={() => {
+          lerpMove("SOCIAL MEDIA", SM_POSITION, SM_ROTATION);
+        }}
+        castShadow
+        receiveShadow
+        geometry={nodes.s_table_main.geometry}
+        material={materials[4]}
+        position={[1.372, 0.662, 0.113]}
+      >
+        <DialogMesh
+          activator={currentLocation === "HOME"}
+          message="Social Media"
+          position={[0, 0.6, 0]}
+        />
       </mesh>
 
+      {/* ABOUT MYSELF */}
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.shelves.geometry}
+        material={materials[2]}
+        position={[-2.013, 2.832, 1.703]}
+      >
+        <DialogMesh
+          activator={currentLocation === "HOME"}
+          message={`About Mys(h)elf 🌟`}
+          position={[0, 0.3, 0]}
+        />
+      </mesh>
+
+      {/* GITHUB */}
+      <SocialMedia type="GITHUB" activator={currentLocation === "SOCIAL MEDIA"}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.gh.geometry}
+          material={materials[4]}
+        />
+      </SocialMedia>
+      {/* INSTAGRAM */}
+      <SocialMedia
+        type="INSTAGRAM"
+        activator={currentLocation === "SOCIAL MEDIA"}
+      >
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.ig.geometry}
+          material={materials[4]}
+        />
+      </SocialMedia>
+      {/* LINKED IN */}
+      <SocialMedia
+        type="LINKEDIN"
+        activator={currentLocation === "SOCIAL MEDIA"}
+      >
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.linked.geometry}
+          material={materials[4]}
+        />
+      </SocialMedia>
       <mesh
         castShadow
         receiveShadow
@@ -345,15 +433,6 @@ export function Room(props) {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.laptop.geometry}
-        material={materials[1]}
-        position={[-2.083, 1.558, -1.239]}
-      >
-        <DialogMesh message="Project Showcase 🛠️" position={[0, 0.6, 0]} />
-      </mesh>
-      <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.port_lap_key.geometry}
         material={materials[1]}
       />
@@ -492,15 +571,6 @@ export function Room(props) {
         geometry={nodes.chair_wheel_stand.geometry}
         material={materials[1]}
       />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.shelves.geometry}
-        material={materials[2]}
-        position={[-2.013, 2.832, 1.703]}
-      >
-        <DialogMesh message={`About Mys(h)elf 🌟`} position={[0, 0.3, 0]} />
-      </mesh>
       <mesh
         castShadow
         receiveShadow
@@ -1051,42 +1121,6 @@ export function Room(props) {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.gh_wood.geometry}
-        material={materials[4]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.ig_wood.geometry}
-        material={materials[4]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.linked_wood.geometry}
-        material={materials[4]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.gh.geometry}
-        material={materials[4]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.ig.geometry}
-        material={materials[4]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.linked.geometry}
-        material={materials[4]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.capybara.geometry}
         material={materials[4]}
       />
@@ -1108,24 +1142,6 @@ export function Room(props) {
         geometry={nodes.s_table_divider.geometry}
         material={materials[4]}
       />
-      <mesh
-        onClick={() => {
-          dispatch(
-            lerpTo({
-              position: SM_POSITION,
-              rotation: SM_ROTATION,
-              isHome:false,
-            })
-          );
-        }}
-        castShadow
-        receiveShadow
-        geometry={nodes.s_table_main.geometry}
-        material={materials[4]}
-        position={[1.372, 0.662, 0.113]}
-      >
-        <DialogMesh message="Social Media" position={[0, 0.6, 0]} />
-      </mesh>
       <mesh
         castShadow
         receiveShadow

@@ -4,7 +4,6 @@ A 3D interactive portfolio built with React, Three.js, and modern web technologi
 It’s more than a website, it’s a digital space that represents me, my work, and my creative process.
 <br>
 
-
 ![Preview](public/img/thumbnail.jpg)
 
 ### ⚙️ Built With
@@ -17,17 +16,21 @@ It’s more than a website, it’s a digital space that represents me, my work, 
 ![Blender](https://img.shields.io/badge/Blender-F5792A?logo=blender&logoColor=white)
 
 ### 🔗 Live Demo
+
 You can check out my portfolio in here:
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge&logo=playwright&logoColor=white)](https://mawan-zee.dev)
 
 ### ✨ Features
 
-- [x] ~~3D room environment (65% replica of my real setup)~~  
-- [x] ~~Camera movement & smooth transitions using GSAP logic~~    
+- [x] ~~3D room environment (65% replica of my real setup)~~
+- [x] ~~Camera movement & smooth transitions using GSAP logic~~
 - [x] ~~Responsive design for mobile and desktop~~
+- [x] ~~Add video in project showcase~~
+- [x] ~~Add clickable social media logic~~
 - [ ] Complete all features camera transition
-- [ ] Add clickable social media logic
+- [ ] Video optimizaiton
 - [ ] Add report bug features
 - [ ] Add project showcase
-- [ ] Add ambient sound and subtle background music  
+- [ ] Add more HTML UI
+- [ ] Add ambient sound and subtle background music

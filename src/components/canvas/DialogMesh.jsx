@@ -1,11 +1,7 @@
-import { Html} from "@react-three/drei";
-import { useSelector } from "react-redux";
-import { checkIsHome, } from "../../features/vector/vectorSlice";
+import { Html } from "@react-three/drei";
 
-function DialogMesh({ message, position }) {
-  const isHome = useSelector(checkIsHome);
-
-  if (isHome) {
+function DialogMesh({ message, position, activator }) {
+  if (activator) {
     return (
       <>
         <Html position={position} center occlude>
