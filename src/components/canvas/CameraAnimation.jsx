@@ -27,11 +27,11 @@ function CameraAnimation({ controlRef }) {
     }
 
     window.addEventListener("wheel", handleScroll);
-    window.addEventListener("touchstart", handleScroll);
+    window.addEventListener("touchmove", handleScroll);
 
     return () => {
       window.removeEventListener("wheel", handleScroll);
-      window.removeEventListener("touchstart", handleScroll);
+      window.removeEventListener("touchmove", handleScroll);
     };
   }, [isAnimating, dispatch]);
 
