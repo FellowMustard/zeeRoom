@@ -10,9 +10,10 @@ function useLerp() {
   const isAnimating = useSelector(selectAnimatingStatus);
   const dispatch = useDispatch();
 
-  function lerpMove(locationName, position, rotation) {
-    if ((location === locationName) | isAnimating) return;
-    dispatch(lerpTo({ position, rotation, location: locationName }));
+  function lerpMove(locationName, position, rotation,shelfIndex=0) {
+    if(isAnimating) return;
+    if (location !== "SHELF" && location === locationName) return;
+    dispatch(lerpTo({ position, rotation, location: locationName,shelfIndex }));
   }
 
   return { lerpMove };

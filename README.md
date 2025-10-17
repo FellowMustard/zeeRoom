@@ -28,7 +28,9 @@ You can check out my portfolio in here:
 - [x] ~~Responsive design for mobile and desktop~~
 - [x] ~~Add video in project showcase~~
 - [x] ~~Add clickable social media logic~~
-- [ ] Complete all features camera transition
+- [x] ~~Complete all features camera transition~~
+- [ ] Global Modal Components for displaying info
+- [ ] Add shelf dialog description
 - [ ] Video optimizaiton
 - [ ] Add report bug features
 - [ ] Add project showcase

@@ -12,7 +12,7 @@ function ScrollSign() {
     gsap.to(".scroll-down", {
       filter: isHome ? "blur(10px)" : "blur(0px)",
       opacity: isHome ? 0 : 1,
-      duration: 0.8,
+      duration: 3,
       ease: "power2.inOut",
     });
   }, [isHome]);

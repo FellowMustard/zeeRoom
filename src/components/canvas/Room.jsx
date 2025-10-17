@@ -6,8 +6,12 @@ import DialogMesh from "./DialogMesh";
 import { useSelector } from "react-redux";
 import { selectCurrentLocation } from "../../features/vector/vectorSlice";
 import {
+  BUG_POSITION,
+  BUG_ROTATION,
   PROJECT_POSITION,
   PROJECT_ROTATION,
+  SHELF_POSITION,
+  SHELF_ROTATION,
   SM_POSITION,
   SM_ROTATION,
 } from "../../lib/data";
@@ -55,6 +59,9 @@ export function Room(props) {
     <group {...props} dispose={null}>
       {/* BUG REPORT */}
       <mesh
+        onClick={() => {
+          lerpMove("BUG", BUG_POSITION, BUG_ROTATION);
+        }}
         castShadow
         receiveShadow
         geometry={nodes.bug.geometry}
@@ -117,6 +124,11 @@ export function Room(props) {
 
       {/* ABOUT MYSELF */}
       <mesh
+         onClick={() => {
+          if(currentLocation !== "SHELF"){
+            lerpMove("SHELF", SHELF_POSITION[0], SHELF_ROTATION,0);
+          }
+        }}
         castShadow
         receiveShadow
         geometry={nodes.shelves.geometry}
@@ -163,6 +175,7 @@ export function Room(props) {
           material={materials[4]}
         />
       </SocialMedia>
+      
       <mesh
         castShadow
         receiveShadow
