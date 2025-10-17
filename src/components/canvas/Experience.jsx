@@ -24,7 +24,7 @@ function Experience() {
       gl={{ antialias: true }}
       camera={{ position: PROJECT_POSITION, fov: 45, near: 0.1, far: 100 }}
     >
-      <Perf position="top-left" />
+      {/* <Perf position="top-left" /> */}
       <Room position={[0, -1, 0]} />
       <OrbitControls
         ref={controlRef}
@@ -43,7 +43,7 @@ function Experience() {
         maxDistance={10}
         panSpeed={0.2}
         zoomSpeed={0.4}
-        rotateSpeed={0.2}
+        rotateSpeed={0.4}
       />
       <CameraAnimation controlRef={controlRef} />
     </Canvas>

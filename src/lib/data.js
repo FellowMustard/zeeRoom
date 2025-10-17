@@ -10,4 +10,4 @@ export const SM_ROTATION = [1.35, 0.19, 0.74];
 export const BUG_POSITION = [-0.4,0.6,-1.4];
 export const BUG_ROTATION = [1.888, 0, -2.11];
 export const SHELF_POSITION = [[3.9,2.7,-4.5],[3.9,1.6,-4.5],[3.9,1,-4.5],[3.9,0.2,-4.5]];
-export const SHELF_ROTATION = [-10,-0.1,1.8];
+export const SHELF_ROTATION = isMobile?[-8.7,-0.1,1.75]:[-10,-0.1,1.8];
