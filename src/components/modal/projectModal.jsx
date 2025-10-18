@@ -18,7 +18,7 @@ function ProjectModal() {
         { opacity: 1, filter: "blur(0px)", duration: 1.5, ease: "power2.out" }
       );
     }
-  });
+  }, [location]);
   return (
     <div ref={modalRef} className="modal-back">
       <div className="modal-content">
