@@ -1,9 +1,8 @@
 import { useMemo } from "react";
-
-import { useGLTF, useTexture, useVideoTexture } from "@react-three/drei";
-import * as THREE from "three";
-import DialogMesh from "./DialogMesh";
 import { useSelector } from "react-redux";
+import * as THREE from "three";
+import { useGLTF, useTexture, useVideoTexture } from "@react-three/drei";
+import DialogMesh from "./DialogMesh";
 import { selectCurrentLocation } from "../../features/vector/vectorSlice";
 import {
   BUG_POSITION,
@@ -21,6 +20,8 @@ import useLerp from "../../hooks/useLerp";
 export function Room(props) {
   const { nodes } = useGLTF("models/pf.glb");
   const { lerpMove } = useLerp();
+  const currentLocation = useSelector(selectCurrentLocation);
+
   const textures = useTexture([
     "models/bake_p01.webp",
     "models/bake_p02.webp",
@@ -53,8 +54,6 @@ export function Room(props) {
   });
   videoTexture.flipY = false;
 
-  const currentLocation = useSelector(selectCurrentLocation);
-
   return (
     <group {...props} dispose={null}>
       {/* BUG REPORT */}
@@ -77,7 +76,7 @@ export function Room(props) {
       {/* PROJECT SHOWCASE */}
       <group
         onClick={() => {
-          lerpMove("PROJECT", PROJECT_POSITION, PROJECT_ROTATION);
+          lerpMove("PROJECT", PROJECT_POSITION, PROJECT_ROTATION, 0);
         }}
       >
         <mesh
@@ -124,9 +123,9 @@ export function Room(props) {
 
       {/* ABOUT MYSELF */}
       <mesh
-         onClick={() => {
-          if(currentLocation !== "SHELF"){
-            lerpMove("SHELF", SHELF_POSITION[0], SHELF_ROTATION,0);
+        onClick={() => {
+          if (currentLocation !== "SHELF") {
+            lerpMove("SHELF", SHELF_POSITION[0], SHELF_ROTATION, 0);
           }
         }}
         castShadow
@@ -175,7 +174,7 @@ export function Room(props) {
           material={materials[4]}
         />
       </SocialMedia>
-      
+
       <mesh
         castShadow
         receiveShadow
