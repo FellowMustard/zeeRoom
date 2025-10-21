@@ -56,7 +56,7 @@ a:disabled {
   aspect-ratio: 4/3;
   max-height: 90vh;
   padding: 12px;
-  width: clamp(300px, 90vw, 600px);
+  width: clamp(300px, 95vw, 600px);
   border-radius: 12px;
   background-color: #1b1a1f;
   box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.3);
@@ -90,19 +90,24 @@ a:disabled {
   padding: 5px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  flex:1;
 }
-.project-info {
-  display: flex;
-  gap: 10px;
+
+.project-pic-wrapper{
+  aspect-ratio: 1/1;
+  width: clamp(110px, 30%, 200px);
+  border-radius: 10px;
+  overflow: hidden;
+  float: left;
+  margin-right: 10px;
+  background-color: #1a1a1a;
 }
 .project-pic {
-  aspect-ratio: 1/1;
-  width: 33%;
-  height: auto;
-  border-radius: 10px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  flex-shrink: 0;
+  display: block;
 }
 .project-name {
   font-weight: 600;

@@ -19,8 +19,8 @@
     "name": "zeePhoto",
     "isFinished": false,
     "description": "A web application used for my personal photo showcase and photography blog.",
-    "categories": ["GSAP", "React", "TailwindCSS", "Three JS"],
-    "pic": "/img/project/zeeroom.webp",
+    "categories": ["GSAP","Next Js", "React", "TailwindCSS", "Three JS"],
+    "pic": "/img/project/zeephoto.webp",
     "link": ""
   }
 ]

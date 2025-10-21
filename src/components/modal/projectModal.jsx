@@ -42,14 +42,15 @@ function ProjectModal() {
             }}
           >{`<`}</button>
           <div className="modal-body">
+            <div></div>
             <div className="project-info">
-              <img
-                className="project-pic"
-                width={150}
-                height={150}
-                src={projectData[index].pic}
-                alt={projectData[index].name}
-              />
+              <div className="project-pic-wrapper">
+                <img
+                  className="project-pic"
+                  src={projectData[index].pic}
+                  alt={projectData[index].name}
+                />
+              </div>
               <div>
                 <p className="project-name">{projectData[index].name}</p>
                 <div className="categories">
