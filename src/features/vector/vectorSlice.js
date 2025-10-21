@@ -5,8 +5,8 @@ const initialState = {
   shelfIndex: 0,
   isAnimating: false,
   location: "",
-  position: [...PROJECT_POSITION],
-  rotation: [...PROJECT_ROTATION],
+  position: PROJECT_POSITION,
+  rotation: PROJECT_ROTATION,
 };
 
 export const vectorSlice = createSlice({

@@ -42,7 +42,7 @@ function CameraAnimation({ controlRef }) {
   //   }
   // );
 
-  // // 🧭 Apply camera/target updates live
+  // //Apply camera/target updates live
   // useEffect(() => {
   //   if (!controlRef.current) return;
   //   const controls = controlRef.current;
@@ -79,11 +79,10 @@ function CameraAnimation({ controlRef }) {
       window.removeEventListener("wheel", handleScroll);
       window.removeEventListener("touchmove", handleScroll);
     };
-  }, [isAnimating, dispatch, location]);
+  }, [isAnimating]);
 
   useGSAP(() => {
     if (!controlRef.current) return;
-
     const controls = controlRef.current;
     gsap.to(camera.position, {
       x: position[0],

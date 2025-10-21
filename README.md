@@ -29,10 +29,10 @@ You can check out my portfolio in here:
 - [x] ~~Add video in project showcase~~
 - [x] ~~Add clickable social media logic~~
 - [x] ~~Complete all features camera transition~~
-- [ ] Global Modal Components for displaying info
+- [x] ~~Global Modal Components for displaying info~~
+- [x] ~~Add project showcase~~
 - [ ] Add shelf dialog description
 - [ ] Video optimizaiton
 - [ ] Add report bug features
-- [ ] Add project showcase
 - [ ] Add more HTML UI
 - [ ] Add ambient sound and subtle background music

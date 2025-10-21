@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Personal Portfolio",
+    "isFinished": true,
+    "description": "A personal portfolio website showcasing my projects and skills.",
+    "categories": ["GSAP", "React", "Redux", "Three JS"],
+    "pic": "/img/project/zeeroom.webp",
+    "link": "#"
+  },
+  {
+    "name": "Gattchaa Oripa (Frontend)",
+    "isFinished": true,
+    "description": "A web applicaiton used for inventory management and simulate Ichiban Kuji gacha system.",
+    "categories": ["Framer Motion", "React", "TailwindCSS", "Typescript"],
+    "pic": "/img/project/oripa.webp",
+    "link": "https://gattchaaoripa.com"
+  },
+  {
+    "name": "zeePhoto",
+    "isFinished": false,
+    "description": "A web application used for my personal photo showcase and photography blog.",
+    "categories": ["GSAP", "React", "TailwindCSS", "Three JS"],
+    "pic": "/img/project/zeeroom.webp",
+    "link": ""
+  }
+]
