@@ -91,10 +91,10 @@ a:disabled {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex:1;
+  flex: 1;
 }
 
-.project-pic-wrapper{
+.project-pic-wrapper {
   aspect-ratio: 1/1;
   width: clamp(110px, 30%, 200px);
   border-radius: 10px;
@@ -146,6 +146,35 @@ a:disabled {
 .visit-button:disabled {
   background-color: gray;
   cursor: not-allowed;
+}
+.form-element {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+  gap: 4px;
+}
+.form-element label {
+  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+  font-weight: 600;
+  color: #f47018;
+}
+.form-element input {
+  font-size: clamp(0.4rem, 0.4rem + 1vw, 0.9rem);
+  max-width: 300px;
+  padding: 4px 8px;
+  border: transparent;
+  border-radius: 4px;
+}
+
+.form-element textarea {
+  font-size: clamp(0.4rem, 0.4rem + 1vw, 0.9rem);
+  max-width: 300px;
+  height: 150px;
+  resize: none;
+  padding: 4px 8px;
+  border: transparent;
+  border-radius: 4px;
+  font-family: "Nunito", sans-serif;
 }
 .canvas {
   max-width: 100vw;

@@ -31,8 +31,9 @@ You can check out my portfolio in here:
 - [x] ~~Complete all features camera transition~~
 - [x] ~~Global Modal Components for displaying info~~
 - [x] ~~Add project showcase~~
+- [x] ~~Add report bug features~~
 - [ ] Add shelf dialog description
 - [ ] Video optimizaiton
-- [ ] Add report bug features
 - [ ] Add more HTML UI
 - [ ] Add ambient sound and subtle background music
+- [ ] Improving Modal and UI looks
