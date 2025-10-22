@@ -159,7 +159,7 @@ a:disabled {
   color: #f47018;
 }
 .form-element input {
-  font-size: clamp(0.4rem, 0.4rem + 1vw, 0.9rem);
+  font-size: 16px;
   max-width: 300px;
   padding: 4px 8px;
   border: transparent;
@@ -167,7 +167,7 @@ a:disabled {
 }
 
 .form-element textarea {
-  font-size: clamp(0.4rem, 0.4rem + 1vw, 0.9rem);
+  font-size: 16px;
   max-width: 300px;
   height: 150px;
   resize: none;
