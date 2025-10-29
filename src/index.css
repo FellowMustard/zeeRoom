@@ -45,12 +45,68 @@ a:disabled {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   z-index: 20;
   position: fixed;
   opacity: 0;
+}
+.memo-paper {
+  aspect-ratio: 4/3;
+  width: clamp(200px, 95vw, 400px);
+  background-color: #e6e687;
+  border-radius: 4px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+}
+.memo-title {
+  font-weight: 700;
+  font-size: clamp(0.5rem, 0.5rem + 2vw, 1.2rem);
+  margin: 0;
+  color: #363539;
+}
+.memo-subtitle {
+  font-weight: 500;
+  font-size: clamp(0.4rem, 0.4rem + 1vw, 1rem);
+  color: #6e6d72;
+}
+.memo-form {
+  margin-top: 10px;
+  color: #363539;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.memo-input {
+  display: flex;
+}
+.memo-input label {
+  flex-basis: 20%;
+  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+}
+.memo-input input {
+  color: #363539;
+  padding: 0%.2rem 0.4rem;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: #363539 2px solid;
+}
+.memo-input textarea {
+  color: #363539;
+  font-size: 16px;
+  max-width: 300px;
+  height: 60px;
+  resize: none;
+  padding: 0%.2rem 0.4rem;
+  border: none;
+  outline: none;
+  border-bottom: #363539 2px solid;
+  background-color: transparent;
+  font-family: "Nunito", sans-serif;
 }
 .modal-content {
   aspect-ratio: 4/3;

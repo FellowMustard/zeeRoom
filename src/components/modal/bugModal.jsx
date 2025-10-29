@@ -12,10 +12,11 @@ function BugModal() {
     const modal = modalRef.current;
     gsap.fromTo(
       modal,
-      { opacity: 0, filter: "blur(10px)" },
+      { opacity: 0, filter: "blur(5px)" },
       { opacity: 1, filter: "blur(0px)", duration: 1.5, ease: "power2.out" }
     );
   }, []);
+
   function handleInput(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
@@ -47,41 +48,24 @@ function BugModal() {
 
   return (
     <div ref={modalRef} className="modal-back">
-      <div className="modal-content">
-        <p className="modal-title">Bug Report</p>
-        <p>Could you describe the bug you ran into?</p>
-
-        <form ref={formRef} onSubmit={handleSubmit} className="modal-body">
-          <div></div>
+      <div className="memo-paper">
+        <p className="memo-title">Rachmawan Bug Service</p>
+        <p className="memo-subtitle">Handling bug and problem since 2020.</p>
+        <form className="memo-form">
           <div>
-            <div className="form-element">
-              <label htmlFor="subject">Subject</label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                placeholder="Short title of the bug"
-                value={formData.subject}
-                onChange={handleInput}
-                required
-              />
+            <div className="memo-input">
+              <label htmlFor="name">Name:</label>
+              <input name="name" id="name" type="text" />
             </div>
-
-            <div className="form-element">
-              <label htmlFor="desc">Description</label>
-              <textarea
-                id="desc"
-                name="desc"
-                placeholder="Describe what happened..."
-                value={formData.desc}
-                onChange={handleInput}
-                required
-              />
+            <div className="memo-input">
+              <label htmlFor="subject">Subject:</label>
+              <input name="subject" id="subject" type="text" />
+            </div>
+            <div className="memo-input">
+              <label htmlFor="desc">Desc:</label>
+              <textarea name="desc" id="desc" />
             </div>
           </div>
-          <button type="submit" className="visit-button">
-            Send Report
-          </button>
         </form>
       </div>
     </div>
