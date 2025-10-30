@@ -15,4 +15,4 @@ export const SHELF_POSITION = [
   [3.9, 1, -4.5],
   [3.9, 0.2, -4.5],
 ];
-export const SHELF_ROTATION = isMobile ? [-8.7, -0.1, 1.75] : [-10, -0.1, 1.8];
+export const SHELF_ROTATION = isMobile ? [-9, -0.1, 1.75] : [-10, -0.1, 1.8];

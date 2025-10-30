@@ -116,7 +116,7 @@ export function Room(props) {
       >
         <DialogMesh
           activator={currentLocation === "HOME"}
-          message="Social Media"
+          message="Social Media 🌐"
           position={[0, 0.6, 0]}
         />
       </mesh>

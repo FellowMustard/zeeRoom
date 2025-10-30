@@ -54,35 +54,53 @@ a:disabled {
 }
 .memo-paper {
   aspect-ratio: 4/3;
-  width: clamp(200px, 95vw, 400px);
-  background-color: #e6e687;
+  width: clamp(200px, 95vw, 420px);
+  background-color: #f4fff3;
   border-radius: 4px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-  padding: 10px;
+  display:flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.memo-header{
+  background-color: #cff1fc;
+  padding: 5px;
 }
 .memo-title {
   font-weight: 700;
   font-size: clamp(0.5rem, 0.5rem + 2vw, 1.2rem);
   margin: 0;
   color: #363539;
+  display: flex;
+  gap:5px;
+  align-items: center;
 }
 .memo-subtitle {
   font-weight: 500;
-  font-size: clamp(0.4rem, 0.4rem + 1vw, 1rem);
+  font-size: clamp(0.5rem, 0.5rem + 1vw, 1rem);
   color: #6e6d72;
 }
 .memo-form {
-  margin-top: 10px;
   color: #363539;
   font-weight: 700;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  flex:1;
+}
+.memo-value{
+  display: flex;
+  flex-direction: column;
   gap: 10px;
+  padding:10px;
 }
 .memo-input {
   display: flex;
+  gap:5px;
 }
 .memo-input label {
+  display: flex;
+  justify-content: space-between;
   flex-basis: 20%;
   font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
 }
@@ -94,11 +112,13 @@ a:disabled {
   border: none;
   outline: none;
   border-bottom: #363539 2px solid;
+  width: clamp(150px, 65%, 300px);
 }
+
 .memo-input textarea {
   color: #363539;
   font-size: 16px;
-  max-width: 300px;
+  width: clamp(150px, 65%, 300px);
   height: 60px;
   resize: none;
   padding: 0%.2rem 0.4rem;
@@ -107,6 +127,48 @@ a:disabled {
   border-bottom: #363539 2px solid;
   background-color: transparent;
   font-family: "Nunito", sans-serif;
+}
+.memo-warning{
+  background-color:#cff1fc;
+  font-size: clamp(0.5rem, 0.5rem + 1vw, 1rem);
+  font-weight: 700;
+  padding:5px;
+}
+.memo-buttons{
+  display: flex;
+  justify-content: flex-end;
+  gap:5px;
+  padding: 10px;
+}
+.memo-buttons button{
+  font-size: 1.2rem;
+  border-radius: 50%;
+  outline: none;
+  border:transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  color: #fff;
+  transition: all 0.3s ease;
+ 
+}
+.memo-buttons button:hover{
+  transform: scale(1.1);
+}
+.send-button{
+   background-color: #fcb483;
+}
+.clear-button{
+  background-color: #ff7575;
+}
+.send-butto:disabled{
+   background-color: #fdc8a4;
+}
+.clear-button:disabled{
+  background-color: #ff9999;
 }
 .modal-content {
   aspect-ratio: 4/3;
