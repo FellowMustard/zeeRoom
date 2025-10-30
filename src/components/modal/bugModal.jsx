@@ -109,7 +109,7 @@ function BugModal() {
                 <span>Desc</span>
                 <span>:</span>
                 </label>
-              <textarea disabled={isLoading} value={formData.desc} name="desc" id="desc" onChange={handleInput}/>
+              <input disabled={isLoading} value={formData.desc} name="desc" id="desc" type="text" onChange={handleInput}/>
             </div>
           </div>
               <div className="memo-buttons">
