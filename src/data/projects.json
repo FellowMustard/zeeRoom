@@ -5,14 +5,16 @@
     "description": "A personal portfolio website showcasing my projects and skills.",
     "categories": ["GSAP", "React", "Redux", "Three JS"],
     "pic": "/img/project/zeeroom.webp",
+    "color":"#eae3b5",
     "link": "#"
   },
   {
     "name": "Gattchaa Oripa (Frontend)",
     "isFinished": true,
-    "description": "A web applicaiton used for inventory management and simulate Ichiban Kuji gacha system.",
+    "description": "A web application used for inventory management and simulate Ichiban Kuji gacha system.",
     "categories": ["Framer Motion", "React", "TailwindCSS", "Typescript"],
     "pic": "/img/project/oripa.webp",
+    "color":"#add4f0",
     "link": "https://gattchaaoripa.com"
   },
   {
@@ -21,6 +23,7 @@
     "description": "A web application used for my personal photo showcase and photography blog.",
     "categories": ["GSAP","Next Js", "React", "TailwindCSS", "Three JS"],
     "pic": "/img/project/zeephoto.webp",
+    "color":"#3aab96",
     "link": ""
   }
 ]

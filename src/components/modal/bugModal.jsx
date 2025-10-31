@@ -79,7 +79,7 @@ function BugModal() {
   }
 
   return (
-    <div ref={modalRef} className="modal-back">
+    <div ref={modalRef} className="blur-back">
       <div ref={memoRef} className="memo-paper">
         <div className="memo-header">
            <p className="memo-title">

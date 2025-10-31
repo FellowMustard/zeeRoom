@@ -2,93 +2,97 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef, useState } from "react";
 import projectData from "../../data/projects.json";
+import Poster from "../canvas/poster";
 
 function ProjectModal() {
   const [index, setIndex] = useState(0);
   const modalRef = useRef(null);
+  const posterRef = useRef(null)
+  const buttonRef = useRef(null)
 
   useGSAP(() => {
     const modal = modalRef.current;
     gsap.fromTo(
       modal,
-      { opacity: 0, filter: "blur(10px)" },
-      { opacity: 1, filter: "blur(0px)", duration: 1.5, ease: "power2.out" }
+      { opacity: 0, filter: "blur(5px)" },
+      { opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power2.out" }
     );
   }, []);
 
   function handleIncrement() {
-    console.log("increment");
+    if(index === projectData.length-1){
+      posterAnimation(()=>setIndex(-1),()=>setIndex(0));
+      return;
+    }
     setIndex((prevIndex) => (prevIndex + 1) % projectData.length);
   }
 
-  function handleDecrement() {
-    console.log("decrement");
-    setIndex((prevIndex) =>
-      prevIndex === 0 ? projectData.length - 1 : prevIndex - 1
-    );
+  function posterAnimation(callback,callback2){
+    const tl = gsap.timeline();
+    const poster = posterRef.current;
+    const button = buttonRef.current
+    tl.fromTo(button,
+    { y: 0, opacity: 1 },
+    { 
+        y: 100, 
+        opacity: 0, 
+        duration: 0.2, 
+        ease: "power2.out" 
+    }
+).fromTo(poster, 
+    { opacity:0},
+    { 
+        opacity:0, 
+        duration: 0.1, 
+        ease: "power2.out",
+        onComplete: () => {
+            if(callback) {
+                callback();
+            }
+        }
+    },
+).fromTo(poster, 
+    { opacity: 0 },
+    { 
+        opacity: 1, 
+        duration: 0.1, 
+        ease: "power2.out",
+        onComplete: () => {
+            if(callback2) {
+                callback2();
+            }
+        }
+    },
+    "+=0.5"
+).fromTo(button,
+    { y: 100, opacity: 0 },
+    { 
+        y: 0, 
+        opacity: 1, 
+        duration: 0.2, 
+        ease: "power2.out" 
+    },
+    "-=0.1"
+);
   }
 
   return (
-    <div ref={modalRef} className="modal-back">
-      <div className="modal-content">
-        <p className="modal-title">Project Showcase</p>
-        <p>List of projects i've been working on:</p>
-        <div className="modal-pagination">
-          <button
-            className="pagination-button"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleDecrement();
-            }}
-          >{`<`}</button>
-          <div className="modal-body">
-            <div></div>
-            <div className="project-info">
-              <div className="project-pic-wrapper">
-                <img
-                  className="project-pic"
-                  src={projectData[index].pic}
-                  alt={projectData[index].name}
-                />
-              </div>
-              <div>
-                <p className="project-name">{projectData[index].name}</p>
-                <div className="categories">
-                  {projectData[index].categories.map((category, i) => (
-                    <span key={i} className="category">
-                      {category}
-                    </span>
-                  ))}
-                </div>
-                <p className="project-desc">{projectData[index].description}</p>
-              </div>
-            </div>
-            <button
-              disabled={!projectData[index].isFinished}
-              className="visit-button"
-            >
-              {projectData[index].isFinished ? (
-                <a
-                  href={projectData[index].link}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Visit Project
-                </a>
-              ) : (
-                <span>Coming Soon...</span>
-              )}
-            </button>
-          </div>
-          <button
-            className="pagination-button"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleIncrement();
-            }}
-          >{`>`}</button>
-        </div>
-      </div>
+    <div ref={modalRef} className="blur-back">
+      <div ref={posterRef} className="poster-container">
+        {Array.from({length:index+1}).map((_,index)=>{
+          return(
+            <Poster 
+              key={index} 
+              color={projectData[index].color }
+              img={projectData[index].pic} 
+              title={projectData[index].name}
+              desc={projectData[index].description}
+              link={projectData[index].link}/>
+          )
+        })}
+      </div>  
+      <button ref={buttonRef} onClick={handleIncrement} className="poster-button">Next Project</button>
+      
     </div>
   );
 }

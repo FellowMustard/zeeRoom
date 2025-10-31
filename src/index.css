@@ -39,8 +39,10 @@ a:disabled {
   );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5B6E8E", endColorstr="#B28579", GradientType=0);
 }
-.modal-back {
+.blur-back {
   display: flex;
+  flex-direction: column;
+  gap: 25px;
   justify-content: center;
   align-items: center;
   width: 100vw;
@@ -158,84 +160,57 @@ a:disabled {
 .clear-button:disabled{
   background-color: #ff9999;
 }
-.modal-content {
-  aspect-ratio: 4/3;
-  max-height: 90vh;
-  padding: 12px;
-  width: clamp(300px, 95vw, 600px);
-  border-radius: 12px;
-  background-color: #1b1a1f;
-  box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.3);
-  font-size: clamp(0.3rem, 0.3rem + 2vw, 1rem);
-  display: flex;
-  flex-direction: column;
+.poster-container{
+  position: relative;
+  aspect-ratio: 4/5;
+  width: clamp(100px, 70vw, 300px);
+  max-height: 95vh;
 }
-.modal-title {
-  font-weight: 700;
-  font-size: clamp(0.5rem, 0.5rem + 2vw, 1.2rem);
-  margin: 0;
+.poster-card{
+  position: absolute;
+  top: 0;
+  left: 0;
+  aspect-ratio: 4/5;
+  width: clamp(100px, 70vw, 300px);
+  background-color: #edeeda;
+  max-height: 95vh;
+  padding:5px;
+  box-shadow:  0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
-.modal-pagination {
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-  flex: 1;
-}
-.pagination-button {
-  background-color: #f47018;
-  height: fit-content;
-  color: #fff;
-  border: none;
-  padding: 4px 8px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: clamp(0.4rem, 0.5rem + 1vw, 1rem);
-  align-self: center;
-}
-.modal-body {
-  padding: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
-}
-
-.project-pic-wrapper {
+.poster-header{
+  position: relative;
   aspect-ratio: 1/1;
-  width: clamp(110px, 30%, 200px);
-  border-radius: 10px;
-  overflow: hidden;
-  float: left;
-  margin-right: 10px;
-  background-color: #1a1a1a;
 }
-.project-pic {
+.poster-title{
+  position: absolute;
+  bottom:15px;
+  font-weight: 700;
+  left: 5px;
+   font-size: clamp(0.8rem, 0.8rem + 2vw, 1.1rem);
+}
+.poster-img{
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1/1;
   object-fit: cover;
-  display: block;
 }
-.project-name {
-  font-weight: 600;
-  color: #f47018;
-}
-.categories {
-  display: flex;
-  gap: 5px;
-  flex-wrap: wrap;
-}
-.categories .category {
+.poster-button{
+  padding: 5px 12px;
+  color:#fff;
   background-color: #f47018;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: clamp(0.3rem, 0.3rem + 1vw, 0.8rem);
-  font-weight: 500;
-  color: #fff;
+  font-weight: 700;
+  border: transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  outline: none;
 }
-.project-desc {
-  margin-top: 8px;
-  font-size: clamp(0.4rem, 0.4rem + 1vw, 0.9rem);
-  line-height: 1.4;
+.poster-button:hover{
+  transform: scale(1.2);
+}
+.poster-desc {
+  font-size: clamp(0.6rem, 0.6rem + 1vw, 1.2rem);
+  line-height: 1rem;
+  color:#363539;
+  font-weight: 700;
 }
 .visit-button {
   background-color: #f47018;
