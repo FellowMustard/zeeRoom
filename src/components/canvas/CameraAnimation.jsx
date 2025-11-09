@@ -88,7 +88,7 @@ function CameraAnimation({ controlRef }) {
       x: position[0],
       y: position[1],
       z: position[2],
-      duration: 3,
+      duration: 2,
       ease: "power3.inOut",
     });
 
@@ -96,7 +96,7 @@ function CameraAnimation({ controlRef }) {
       x: rotation[0],
       y: rotation[1],
       z: rotation[2],
-      duration: 3,
+      duration: 2,
       ease: "power3.inOut",
       onUpdate: () => {
         controls.update();

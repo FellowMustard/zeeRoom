@@ -5,7 +5,7 @@ import { useRef } from "react";
 const ROTATION_MIN = -10;
 const ROTATION_MAX =10;
 
-function Poster({title,img,color,desc,link}){
+function Poster({title,img,color,desc,link,isFinished}){
 
     const posterRef = useRef()
     useGSAP(()=>{
@@ -25,6 +25,7 @@ function Poster({title,img,color,desc,link}){
     return(
         <div onClick={handleVisit} ref={posterRef} style={{backgroundColor:color}} className="poster-card">
             <div className="poster-header">
+                 {!isFinished && <p className="poster-comingsoon">Coming Soon</p>}
                 <img className="poster-img" src={img}/>
                 <p style={{color:color}} className="poster-title">{title}</p>
             </div>

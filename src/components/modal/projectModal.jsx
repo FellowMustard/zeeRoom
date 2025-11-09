@@ -87,7 +87,8 @@ function ProjectModal() {
               img={projectData[index].pic} 
               title={projectData[index].name}
               desc={projectData[index].description}
-              link={projectData[index].link}/>
+              link={projectData[index].link}
+              isFinished={projectData[index].isFinished}/>
           )
         })}
       </div>  

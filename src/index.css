@@ -175,7 +175,18 @@ a:disabled {
   background-color: #edeeda;
   max-height: 95vh;
   padding:5px;
+  cursor: pointer;
   box-shadow:  0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+.poster-comingsoon{
+  position: absolute;
+  top: 6%;
+  padding: 2px 10px;
+  right: -10%;
+  background-color: #ff3636;
+  color: #fff;
+  font-weight: 700;
+  transform: rotateZ(45deg);
 }
 .poster-header{
   position: relative;
@@ -211,6 +222,7 @@ a:disabled {
   line-height: 1rem;
   color:#363539;
   font-weight: 700;
+  padding: 5px;
 }
 .visit-button {
   background-color: #f47018;
@@ -285,6 +297,37 @@ html,
   opacity: 0;
   transform: translateY(10px);
   animation: dialogAppear 0.2s ease-out forwards;
+}
+.skills-marquee{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  width: 100vw;
+}
+.skills-container{
+  width: clamp(280px, 95vw, 600px);
+  flex-wrap: wrap;
+  margin: 0 auto;
+  display: flex;
+  gap:5px;
+  justify-content: center;
+}
+.skills-pill{
+  padding: 2px 8px;
+  color: #fff;
+  background-color: #f47018;
+  font-weight: 700;
+  border-radius: 20px;
+  align-items: center;
+  display: flex;
+  gap: 5px;
+}
+.skills-icon{
+  width: 20px;
+  height: 20px;
 }
 
 @keyframes dialogAppear {
