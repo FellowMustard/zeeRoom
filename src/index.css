@@ -306,7 +306,8 @@ html,
   transform: translateY(10px);
   animation: dialogAppear 0.2s ease-out forwards;
 }
-.skills-marquee{
+.skills-marquee,
+.hobby-section{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -336,6 +337,46 @@ html,
 .skills-icon{
   width: 20px;
   height: 20px;
+}
+
+.hobby-container{
+  width: clamp(280px, 95vw, 600px);
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  gap:5px;
+}
+
+.hobby-icon{
+  width: 40px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: #f47018;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hobby-desc{
+  width: fit-content;
+  padding: 5px;
+  background-color: #17aa40;
+  position: relative;
+  margin-left: 20px;
+  border-radius: 5px;
+}
+.hobby-desc::before{
+   width: 0px;
+   height: 0px;
+   border-style: solid;
+   border-width: 5px 14px 5px 0;
+   border-color: transparent #17aa40 transparent transparent;
+   position: absolute;
+   bottom: -6px;
+   left: -9px;
+   transform: rotateZ(-45deg);
+   content: "";
 }
 
 @keyframes dialogAppear {

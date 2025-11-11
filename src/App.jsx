@@ -7,6 +7,7 @@ import { Loader } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { PROJECT_POSITION } from "./lib/data";
 import TopTitle from "./components/canvas/TopTitle";
+import HobbySection from "./components/canvas/HobbySection";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Loader/>
       <ScrollSign />
       <SkillMarquee/>
+      <HobbySection/>
       <TopTitle/>
      
     </>

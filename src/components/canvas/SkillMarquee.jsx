@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import { selectCurrentLocation, selectShelfIndex } from "../../features/vector/vectorSlice";
 import ProjectData from "../../data/skills.json"
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
 import gsap from "gsap";
 
 function SkillMarquee(){

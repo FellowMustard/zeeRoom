@@ -14,7 +14,7 @@
     "description": "A web application used for inventory management and simulate Ichiban Kuji gacha system.",
     "categories": ["Framer Motion", "React", "TailwindCSS", "Typescript"],
     "pic": "/img/project/oripa.webp",
-    "color":"#e31e60",
+    "color":"#f47018",
     "link": "https://gattchaaoripa.com"
   },
   {
