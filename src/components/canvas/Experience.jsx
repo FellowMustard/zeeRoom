@@ -1,14 +1,12 @@
-import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { Room } from "./Room";
-import { PROJECT_POSITION, PROJECT_ROTATION } from "../../lib/data";
+import { PROJECT_ROTATION } from "../../lib/data";
 import { useRef } from "react";
 import { useSelector } from "react-redux";
 import {
   selectAnimatingStatus,
   selectCurrentLocation,
 } from "../../features/vector/vectorSlice";
-import { Perf } from "r3f-perf";
 import CameraAnimation from "./CameraAnimation";
 
 function Experience() {
@@ -18,13 +16,7 @@ function Experience() {
   const orbitActive = isHome && !isAnimating;
 
   return (
-    <Canvas
-      dpr={[1, 1.5]}
-      className="canvas"
-      gl={{ antialias: true }}
-      camera={{ position: PROJECT_POSITION, fov: 45, near: 0.1, far: 100 }}
-    >
-      <Perf position="top-left" />
+    <>
       <Room position={[0, -1, 0]} />
       <OrbitControls
         ref={controlRef}
@@ -46,7 +38,7 @@ function Experience() {
         rotateSpeed={0.4}
       />
       <CameraAnimation controlRef={controlRef} />
-    </Canvas>
+    </>
   );
 }
 

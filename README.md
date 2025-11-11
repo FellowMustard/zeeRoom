@@ -33,8 +33,8 @@ You can check out my portfolio in here:
 - [x] ~~Add project showcase~~
 - [x] ~~Add report bug features~~
 - [x] ~~Improving Modal and UI looks~~
+- [x] ~~Add more HTML UI~~
 - [ ] Add shelf dialog description
 - [ ] Video optimizaiton
-- [ ] Add more HTML UI
 - [ ] Add ambient sound and subtle background music
 

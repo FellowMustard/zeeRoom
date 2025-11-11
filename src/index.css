@@ -39,6 +39,14 @@ a:disabled {
   );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5B6E8E", endColorstr="#B28579", GradientType=0);
 }
+.top-title{
+  position: absolute;
+  top: 2%;
+  right:2%;
+  font-size: clamp(0.8rem, 0.8rem + 2vw, 1.8rem);
+  font-weight: 700;
+  z-index: 60;
+}
 .blur-back {
   display: flex;
   flex-direction: column;

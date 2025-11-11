@@ -18,7 +18,6 @@ import {
   SHELF_POSITION,
   SHELF_ROTATION,
 } from "../../lib/data";
-import { useControls } from "leva";
 
 function CameraAnimation({ controlRef }) {
   const { camera } = useThree();

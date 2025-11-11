@@ -106,7 +106,7 @@ export function Room(props) {
       {/* SOCIAL MEDIA */}
       <mesh
         onClick={() => {
-          lerpMove("SOCIAL MEDIA", SM_POSITION, SM_ROTATION);
+          lerpMove("SOCIAL_MEDIA", SM_POSITION, SM_ROTATION);
         }}
         castShadow
         receiveShadow
@@ -142,7 +142,7 @@ export function Room(props) {
       </mesh>
 
       {/* GITHUB */}
-      <SocialMedia type="GITHUB" activator={currentLocation === "SOCIAL MEDIA"}>
+      <SocialMedia type="GITHUB" activator={currentLocation === "SOCIAL_MEDIA"}>
         <mesh
           castShadow
           receiveShadow
@@ -153,7 +153,7 @@ export function Room(props) {
       {/* INSTAGRAM */}
       <SocialMedia
         type="INSTAGRAM"
-        activator={currentLocation === "SOCIAL MEDIA"}
+        activator={currentLocation === "SOCIAL_MEDIA"}
       >
         <mesh
           castShadow
@@ -165,7 +165,7 @@ export function Room(props) {
       {/* LINKED IN */}
       <SocialMedia
         type="LINKEDIN"
-        activator={currentLocation === "SOCIAL MEDIA"}
+        activator={currentLocation === "SOCIAL_MEDIA"}
       >
         <mesh
           castShadow
