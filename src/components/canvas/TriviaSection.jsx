@@ -28,11 +28,11 @@ function TriviaSection(){
     },[isVisible])
 
     useGSAP(()=>{
-        gsap.from(triviaRef.current, {
-            opacity:0,
-            scale:2.5,
-            ease: "power2.inOut",
-        });
+        if(!isVisible) return;
+        gsap.fromTo(triviaRef.current,
+            { opacity: 0, scale: 2.5 },
+            { opacity: 1, scale: 1, duration: 0.6, ease: "power2.inOut" }
+        );
     },[index])
 
     if(isVisible){
