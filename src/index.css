@@ -307,7 +307,8 @@ html,
   animation: dialogAppear 0.2s ease-out forwards;
 }
 .skills-marquee,
-.hobby-section{
+.hobby-section,
+.trivia-section{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -315,6 +316,9 @@ html,
   bottom: 10%;
   left: 0;
   width: 100vw;
+}
+.trivia-section{
+  bottom: 15%;
 }
 .skills-container{
   width: clamp(280px, 95vw, 600px);
@@ -454,4 +458,104 @@ html,
   40% {
     transform: scale(1);
   }
+}
+
+.trivia-container{
+  width: clamp(280px, 95vw, 600px);
+  display: flex;
+  flex-direction: column;
+  gap:5px;
+}
+.trivia{
+  position: relative;
+  font-size: clamp(1rem, 1rem + 2vw, 1.3rem);
+  width: clamp(150px, 85%, 300px);
+  margin: auto;
+  padding: 5px;
+  text-align: center;
+  border-radius: 25px;
+}
+.trivia.debuff{
+  border: 3px solid #4773a6;
+  background:linear-gradient(45deg, 
+  #6b9cea 0%,
+  #6b9cea 15%,
+  #568fe8 15%,
+  #568fe8 85%,
+  #6b9cea 85%,
+  #6b9cea 100%)
+}
+.trivia.buff{
+  border: 3px solid #884c00;
+  background:linear-gradient(45deg, 
+  #ffbc1c 0%,
+  #ffbc1c 15%,
+  #ffd328 15%,
+  #ffd328 85%,
+  #ffbc1c 85%,
+  #ffbc1c 100%)
+}
+
+.trivia.debuff::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  z-index: 10;  
+ border-radius: 25px;
+  background:linear-gradient(-45deg, 
+  #6b9cea 0%,
+  #6b9cea 15%,
+  #568fe8 15%,
+  #568fe8 85%,
+  #6b9cea 85%,
+  #6b9cea 100%)
+}
+.trivia.buff::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  z-index: 10;  
+ border-radius: 25px;
+  background:linear-gradient(-45deg, 
+   #ffbc1c 0%,
+  #ffbc1c 15%,
+  #ffd328 15%,
+  #ffd328 85%,
+  #ffbc1c 85%,
+  #ffbc1c 100%)
+}
+.trivia-title{
+  z-index: 30;
+  position: absolute;
+  top:-20px;
+  text-align: center;
+  width: 100%;
+  font-weight: 900;
+  font-style: italic;
+
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.trivia-title.debuff{
+  background: linear-gradient(180deg,#dceeff 0%, #7ba8f2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.trivia-title.buff{
+  background: linear-gradient(180deg,#fff5dc 0%, #c9971a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.trivia-desc{
+  color: #fff;
+  font-weight: 700;
+  z-index: 20;
+  position: relative;
 }

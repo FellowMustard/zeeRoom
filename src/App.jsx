@@ -8,6 +8,7 @@ import { Canvas } from "@react-three/fiber";
 import { PROJECT_POSITION } from "./lib/data";
 import TopTitle from "./components/canvas/TopTitle";
 import HobbySection from "./components/canvas/HobbySection";
+import TriviaSection from "./components/canvas/TriviaSection";
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
       <SkillMarquee/>
       <HobbySection/>
       <TopTitle/>
-     
+      <TriviaSection/>
     </>
   );
 }

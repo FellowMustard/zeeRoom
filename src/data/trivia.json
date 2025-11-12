@@ -1,0 +1,34 @@
+[
+    {
+        "isDebuff":true,
+        "name":"Overthinker"
+    },
+    {
+        "isDebuff":true,
+        "name":"Perfectionist"
+    },
+    {
+        "isDebuff":true,
+        "name":"Arachnophobia"
+    },
+     {
+        "isDebuff":true,
+        "name":"Coffee Dependent"
+    },
+    {
+        "isDebuff":false,
+        "name":"Creative Thinker"
+    },
+    {
+        "isDebuff":false,
+        "name":"Problem Solver"
+    },
+    {
+        "isDebuff":false,
+        "name":"Competitive"
+    },
+    {
+        "isDebuff":false,
+        "name":"ID EN CN Mastery"
+    }
+]
