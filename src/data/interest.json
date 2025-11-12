@@ -1,7 +1,26 @@
 [
     {
-        "name":"Board Game",
-        "icon":"catan",
+        "isGreen":false,
+        "message":"Board Game?"
+    },
+    {
+        "isGreen":true,
         "message":"Root and Catan are my favorites."
+    },
+    {
+        "isGreen":false,
+        "message":"Trading Card?"
+    },
+    {
+        "isGreen":true,
+        "message":"I played a lot of TCG, but I'm really liking One Piece right now."
+    },
+    {
+        "isGreen":false,
+        "message":"Video Game?"
+    },
+    {
+        "isGreen":true,
+        "message":"I'm currently trying to beat Pokemon ZA."
     }
 ]
