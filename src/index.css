@@ -39,10 +39,10 @@ a:disabled {
   );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5B6E8E", endColorstr="#B28579", GradientType=0);
 }
-.top-title{
+.top-title {
   position: absolute;
   top: 2%;
-  right:2%;
+  right: 2%;
   font-size: clamp(0.8rem, 0.8rem + 2vw, 1.8rem);
   font-weight: 700;
   z-index: 60;
@@ -68,11 +68,11 @@ a:disabled {
   background-color: #f4fff3;
   border-radius: 4px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-  display:flex;
+  display: flex;
   flex-direction: column;
   overflow: hidden;
 }
-.memo-header{
+.memo-header {
   background-color: #cff1fc;
   padding: 5px;
 }
@@ -82,7 +82,7 @@ a:disabled {
   margin: 0;
   color: #363539;
   display: flex;
-  gap:5px;
+  gap: 5px;
   align-items: center;
 }
 .memo-subtitle {
@@ -96,17 +96,17 @@ a:disabled {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex:1;
+  flex: 1;
 }
-.memo-value{
+.memo-value {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding:10px;
+  padding: 10px;
 }
 .memo-input {
   display: flex;
-  gap:5px;
+  gap: 5px;
 }
 .memo-input label {
   display: flex;
@@ -126,23 +126,23 @@ a:disabled {
   border-radius: 0;
 }
 
-.memo-warning{
-  background-color:#cff1fc;
+.memo-warning {
+  background-color: #cff1fc;
   font-size: clamp(0.5rem, 0.5rem + 1vw, 1rem);
   font-weight: 700;
-  padding:5px;
+  padding: 5px;
 }
-.memo-buttons{
+.memo-buttons {
   display: flex;
   justify-content: flex-end;
-  gap:5px;
+  gap: 5px;
   padding: 10px;
 }
-.memo-buttons button{
+.memo-buttons button {
   font-size: clamp(0.5rem, 0.5rem + 2vw, 1.2rem);
   border-radius: 50%;
   outline: none;
-  border:transparent;
+  border: transparent;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -151,30 +151,29 @@ a:disabled {
   height: clamp(20px, 2rem + 1vw, 45px);
   color: #fff;
   transition: all 0.3s ease;
- 
 }
-.memo-buttons button:hover{
+.memo-buttons button:hover {
   transform: scale(1.1);
 }
-.send-button{
-   background-color: #fcb483;
+.send-button {
+  background-color: #fcb483;
 }
-.clear-button{
+.clear-button {
   background-color: #ff7575;
 }
-.send-butto:disabled{
-   background-color: #fdc8a4;
+.send-butto:disabled {
+  background-color: #fdc8a4;
 }
-.clear-button:disabled{
+.clear-button:disabled {
   background-color: #ff9999;
 }
-.poster-container{
+.poster-container {
   position: relative;
   aspect-ratio: 4/5;
   width: clamp(100px, 70vw, 300px);
   max-height: 95vh;
 }
-.poster-card{
+.poster-card {
   position: absolute;
   top: 0;
   left: 0;
@@ -182,11 +181,11 @@ a:disabled {
   width: clamp(100px, 70vw, 300px);
   background-color: #edeeda;
   max-height: 95vh;
-  padding:5px;
+  padding: 5px;
   cursor: pointer;
-  box-shadow:  0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
-.poster-comingsoon{
+.poster-comingsoon {
   position: absolute;
   top: 6%;
   padding: 2px 10px;
@@ -196,25 +195,25 @@ a:disabled {
   font-weight: 700;
   transform: rotateZ(45deg);
 }
-.poster-header{
+.poster-header {
   position: relative;
   aspect-ratio: 1/1;
 }
-.poster-title{
+.poster-title {
   position: absolute;
-  bottom:15px;
+  bottom: 15px;
   font-weight: 700;
   left: 5px;
-   font-size: clamp(0.8rem, 0.8rem + 2vw, 1.1rem);
+  font-size: clamp(0.8rem, 0.8rem + 2vw, 1.1rem);
 }
-.poster-img{
+.poster-img {
   width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
 }
-.poster-button{
+.poster-button {
   padding: 5px 12px;
-  color:#fff;
+  color: #fff;
   background-color: #f47018;
   font-weight: 700;
   border: transparent;
@@ -222,13 +221,13 @@ a:disabled {
   cursor: pointer;
   outline: none;
 }
-.poster-button:hover{
+.poster-button:hover {
   transform: scale(1.2);
 }
 .poster-desc {
   font-size: clamp(0.6rem, 0.6rem + 1vw, 1.2rem);
   line-height: 1rem;
-  color:#363539;
+  color: #363539;
   font-weight: 700;
   padding: 5px;
 }
@@ -308,7 +307,7 @@ html,
 }
 .skills-marquee,
 .hobby-section,
-.trivia-section{
+.trivia-section {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -317,18 +316,27 @@ html,
   left: 0;
   width: 100vw;
 }
-.trivia-section{
+.goals-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 100vw;
+}
+.trivia-section {
   bottom: 15%;
 }
-.skills-container{
+.skills-container {
   width: clamp(280px, 95vw, 600px);
   flex-wrap: wrap;
   margin: 0 auto;
   display: flex;
-  gap:5px;
+  gap: 5px;
   justify-content: center;
 }
-.skills-pill{
+.skills-pill {
   padding: 2px 8px;
   color: #fff;
   background-color: #f47018;
@@ -338,19 +346,19 @@ html,
   display: flex;
   gap: 5px;
 }
-.skills-icon{
+.skills-icon {
   width: 20px;
   height: 20px;
 }
 
-.hobby-container{
+.hobby-container {
   width: clamp(280px, 95vw, 600px);
   display: flex;
   flex-direction: column;
-  gap:5px;
+  gap: 5px;
 }
 
-.hobby-icon{
+.hobby-icon {
   width: 40px;
   aspect-ratio: 1/1;
   border-radius: 50%;
@@ -361,7 +369,7 @@ html,
   align-items: center;
 }
 
-.hobby-desc{
+.hobby-desc {
   width: fit-content;
   padding: 5px;
   position: relative;
@@ -369,35 +377,35 @@ html,
   min-height: 30px;
   font-weight: 700;
 }
-.hobby-desc.green{
+.hobby-desc.green {
   background-color: #17aa40;
   margin-left: 20px;
 }
-.hobby-desc.white{
+.hobby-desc.white {
   background-color: #ffffff;
-  color:black;
+  color: black;
   margin-left: auto;
   margin-right: 20px;
 }
-.hobby-desc::before{
-   width: 0px;
-   height: 0px;
-   border-style: solid;
-   border-width: 5px 14px 5px 0;
-   position: absolute;
-   content: "";
+.hobby-desc::before {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 5px 14px 5px 0;
+  position: absolute;
+  content: "";
 }
-.hobby-desc.green::before{
+.hobby-desc.green::before {
   border-color: transparent #17aa40 transparent transparent;
   bottom: -6px;
-   left: -8px;
-   transform: rotateZ(-45deg);
+  left: -8px;
+  transform: rotateZ(-45deg);
 }
-.hobby-desc.white::before{
-   border-color: transparent white transparent transparent;
-   bottom: -6px;
-   right: -8px;
-   transform: rotateZ(-135deg);
+.hobby-desc.white::before {
+  border-color: transparent white transparent transparent;
+  bottom: -6px;
+  right: -8px;
+  transform: rotateZ(-135deg);
 }
 
 @keyframes dialogAppear {
@@ -421,23 +429,23 @@ html,
   font-weight: 700;
 }
 
-.dot{
+.dot {
   display: flex;
-  gap:2px;
+  gap: 2px;
   justify-content: center;
   align-items: center;
   height: 20px;
 }
-.dot span{
+.dot span {
   width: 5px;
   height: 5px;
   border-radius: 50%;
   animation: bounce 1s infinite ease-in-out;
 }
-.dot.green span{
+.dot.green span {
   background-color: #ffffff;
 }
-.dot.white span{
+.dot.white span {
   background-color: #000000;
 }
 
@@ -452,7 +460,9 @@ html,
 }
 
 @keyframes bounce {
-  0%, 80%, 100% {
+  0%,
+  80%,
+  100% {
     transform: scale(0);
   }
   40% {
@@ -460,13 +470,13 @@ html,
   }
 }
 
-.trivia-container{
+.trivia-container {
   width: clamp(280px, 95vw, 600px);
   display: flex;
   flex-direction: column;
-  gap:5px;
+  gap: 5px;
 }
-.trivia{
+.trivia {
   position: relative;
   font-size: clamp(1rem, 1rem + 2vw, 1.3rem);
   width: clamp(150px, 85%, 300px);
@@ -475,28 +485,32 @@ html,
   text-align: center;
   border-radius: 25px;
 }
-.trivia.debuff{
+.trivia.debuff {
   border: 3px solid #4773a6;
-  background:linear-gradient(45deg, 
-  #6b9cea 0%,
-  #6b9cea 15%,
-  #568fe8 15%,
-  #568fe8 85%,
-  #6b9cea 85%,
-  #6b9cea 100%)
+  background: linear-gradient(
+    45deg,
+    #6b9cea 0%,
+    #6b9cea 15%,
+    #568fe8 15%,
+    #568fe8 85%,
+    #6b9cea 85%,
+    #6b9cea 100%
+  );
 }
-.trivia.buff{
+.trivia.buff {
   border: 3px solid #884c00;
-  background:linear-gradient(45deg, 
-  #ffbc1c 0%,
-  #ffbc1c 15%,
-  #ffd328 15%,
-  #ffd328 85%,
-  #ffbc1c 85%,
-  #ffbc1c 100%)
+  background: linear-gradient(
+    45deg,
+    #ffbc1c 0%,
+    #ffbc1c 15%,
+    #ffd328 15%,
+    #ffd328 85%,
+    #ffbc1c 85%,
+    #ffbc1c 100%
+  );
 }
 
-.trivia.debuff::after{
+.trivia.debuff::after {
   content: "";
   position: absolute;
   top: 0;
@@ -504,17 +518,19 @@ html,
   width: 100%;
   height: 100%;
   opacity: 0.5;
-  z-index: 10;  
- border-radius: 25px;
-  background:linear-gradient(-45deg, 
-  #6b9cea 0%,
-  #6b9cea 15%,
-  #568fe8 15%,
-  #568fe8 85%,
-  #6b9cea 85%,
-  #6b9cea 100%)
+  z-index: 10;
+  border-radius: 25px;
+  background: linear-gradient(
+    -45deg,
+    #6b9cea 0%,
+    #6b9cea 15%,
+    #568fe8 15%,
+    #568fe8 85%,
+    #6b9cea 85%,
+    #6b9cea 100%
+  );
 }
-.trivia.buff::after{
+.trivia.buff::after {
   content: "";
   position: absolute;
   top: 0;
@@ -522,20 +538,22 @@ html,
   width: 100%;
   height: 100%;
   opacity: 0.5;
-  z-index: 10;  
- border-radius: 25px;
-  background:linear-gradient(-45deg, 
-   #ffbc1c 0%,
-  #ffbc1c 15%,
-  #ffd328 15%,
-  #ffd328 85%,
-  #ffbc1c 85%,
-  #ffbc1c 100%)
+  z-index: 10;
+  border-radius: 25px;
+  background: linear-gradient(
+    -45deg,
+    #ffbc1c 0%,
+    #ffbc1c 15%,
+    #ffd328 15%,
+    #ffd328 85%,
+    #ffbc1c 85%,
+    #ffbc1c 100%
+  );
 }
-.trivia-title{
+.trivia-title {
   z-index: 30;
   position: absolute;
-  top:-20px;
+  top: -20px;
   text-align: center;
   width: 100%;
   font-weight: 900;
@@ -543,19 +561,38 @@ html,
 
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
-.trivia-title.debuff{
-  background: linear-gradient(180deg,#dceeff 0%, #7ba8f2 100%);
+.trivia-title.debuff {
+  background: linear-gradient(180deg, #dceeff 0%, #7ba8f2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.trivia-title.buff{
-  background: linear-gradient(180deg,#fff5dc 0%, #c9971a 100%);
+.trivia-title.buff {
+  background: linear-gradient(180deg, #fff5dc 0%, #c9971a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.trivia-desc{
+.trivia-desc {
   color: #fff;
   font-weight: 700;
   z-index: 20;
   position: relative;
+}
+
+.goals-container {
+  width: clamp(280px, 95vw, 400px);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.goal-item {
+  background-color: #f47018;
+  color: #fff;
+  padding: 8px;
+  border-radius: 8px;
+}
+.goal-title {
+  font-size: clamp(1rem, 1rem + 2vw, 1.3rem);
+  margin-bottom: 4px;
+  font-weight: 700;
 }

@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "title": "Learn a New Language",
+    "desc": "Set a goal to learn Japanese and maybe visit there one day."
+  },
+  {
+    "id": 2,
+    "title": "Create More React Projects",
+    "desc": "Explore and produce more react projects to enhance your skills and portfolio."
+  },
+  {
+    "id": 3,
+    "title": "Aim for Awwwards",
+    "desc": "Design and develop websites that can win Awwwards for their creativity and innovation."
+  }
+]

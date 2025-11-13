@@ -34,7 +34,6 @@ You can check out my portfolio in here:
 - [x] ~~Add report bug features~~
 - [x] ~~Improving Modal and UI looks~~
 - [x] ~~Add more HTML UI~~
-- [ ] Add shelf dialog description
+- [x] ~~Add shelf dialog description~~
 - [ ] Video optimizaiton
 - [ ] Add ambient sound and subtle background music
-
